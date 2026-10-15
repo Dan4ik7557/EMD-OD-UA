@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Екстрене медичне перевезення — Центр ЕМД та МК Одеської області</title>
+    <meta name="description" content="Транспортування хворих на автомобілях екстреної (швидкої) медичної допомоги класу «В» та «С» по Україні та Одеській області в супроводі медичного працівника.">
+    <link rel="stylesheet" href="emergencymedicaltransport.css">
+    <script src="emergencymedicaltransport.js" defer></script>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header_wrapper">
+        <div class="menu_wrapper">
+
+            <!-- Логотип -->
+            <a href="../../index.html" class="logo_link" aria-label="На головну">
+                <img src="../../imgindex/logo.png"
+                     alt="Центр екстреної медичної допомоги та медицини катастроф Одеської області"
+                     class="logo_img">
+            </a>
+
+            <!-- Десктопне меню -->
+            <nav class="menu_nav_wrapper" aria-label="Головне меню">
+                <ul class="nav_list">
+
+                    <li class="nav_item has_dropdown is_current">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Послуги
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../Emergency%20medical%20services/emergencymedicalservices.html">Екстрена швидка медична допомога</a></li>
+                                <li><a href="../Emergency%20medical%20transport/emergencymedicaltransport.html" aria-current="page">Екстрене медичне перевезення</a></li>
+                                <li><a href="../Emergency consultative care/Emergencyconsultativecare.html">Надання екстреної консультативної медичної допомоги</a></li>
+                                <li><a href="../Calls for hearing impaired/callsforhearingimpaired.html">Прийом викликів від населення з вадами слуху та мови</a></li>
+                                <li><a href="#">Наявність лікарських засобів</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Організація
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="#">Про нас</a></li>
+                                <li><a href="../../organization/Historyy/history.html">Історія</a></li>
+                                <li><a href="#">Структурні підрозділи</a></li>
+                                <li><a href="../../index.html#team">Керівництво</a></li>
+                                <li><a href="#">Діяльність</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Учбово-тренувальний відділ
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="#">Медична підготовка (I рівень)</a></li>
+                                <li><a href="#">Медична підготовка (II рівень)</a></li>
+                                <li><a href="#">Медична підготовка (III рівень)</a></li>
+                                <li><a href="#">Безперервний професійний розвиток</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item"><a href="../../index.html#news" class="nav_link">Новини</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Фотогалерея</a></li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Державні закупівлі
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <!-- Тимчасові пункти — замініть на підрозділи з оригінального сайту -->
+                                <li><a href="#">Річний план закупівель</a></li>
+                                <li><a href="#">Оголошення про закупівлі</a></li>
+                                <li><a href="#">Обґрунтування технічних та якісних характеристик</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item"><a href="#" class="nav_link">Нормативні акти</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <!-- Праворуч: сплит-кнопка + бургер -->
+            <div class="header_actions">
+                <div class="split_btn">
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Телефони">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </button>
+                    <span class="split_btn_divider" aria-hidden="true"></span>
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Електронна пошта">
+                        <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </button>
+                </div>
+
+                <button type="button" class="burger_btn" id="burgerBtn" aria-label="Відкрити меню">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="sp">
+
+        <!-- ============ ЗАГОЛОВОК СТОРІНКИ ============ -->
+        <section class="sp_hero">
+            <div class="sp_inner">
+                <nav class="sp_crumbs reveal" aria-label="Навігація">
+                    <a href="../../index.html">Головна</a>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <a href="../../index.html#services">Послуги</a>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <span aria-current="page">Екстрене медичне перевезення</span>
+                </nav>
+
+                <h1 class="sp_title reveal" style="--i: 1">Екстрене медичне перевезення</h1>
+
+                <!-- Перемикач між трьома послугами -->
+                <ul class="sp_tabs reveal" style="--i: 2">
+                    <li>
+                        <a href="../Emergency%20medical%20transport/emergencymedicaltransport.html" class="sp_tab is_active" aria-current="page">
+                            <span class="sp_tab_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M10 10H6"/><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14"/><path d="M8 8v4"/><path d="M9 18h6"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                            </span>
+                            Екстрене медичне перевезення
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Emergency%20medical%20services/emergencymedicalservices.html" class="sp_tab">
+                            <span class="sp_tab_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+                            </span>
+                            Надання екстреної (швидкої) медичної допомоги
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Emergency consultative care/Emergencyconsultativecare.html" class="sp_tab">
+                            <span class="sp_tab_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg>
+                            </span>
+                            Надання екстреної консультативної медичної допомоги
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ ПРО ПОСЛУГУ ============ -->
+        <section class="sp_intro">
+            <div class="sp_inner sp_intro_grid">
+                <figure class="sp_photo reveal_fade">
+                    <img src="../../imgindex/izobrazhenie-whatsapp-2025-10-09-v-15.03.44_3062d5e7-e1760011809195.jpg"
+                         alt="Автомобіль екстреної (швидкої) медичної допомоги"
+                         onerror="this.parentElement.classList.add('no_img'); this.remove()">
+                </figure>
+
+                <div class="sp_intro_text">
+                    <span class="sp_eyebrow reveal">Про послугу</span>
+                    <p class="sp_lead sp_lead_big reveal" style="--i: 1">
+                        При наявності звертань пацієнтів та страхових компаній, що займаються наданням медичних
+                        послуг, громадян інших регіонів або країн, КНП «ООЦЕМД і МК» ООР здійснює
+                        <strong>на договірній основі</strong> послуги по транспортуванню хворих на автомобілях
+                        екстреної (швидкої) медичної допомоги класу «В» та класу «С», по території України та
+                        Одеській області, в супроводі з медичним працівником (лікарем або медичною сестрою).
+                    </p>
+
+                    <a href="#order" class="hero_btn hero_btn_103 sp_order_btn reveal" style="--i: 2">
+                        Замовити послугу
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ КОРОТКО: 4 КЛЮЧОВІ ПУНКТИ З ТЕКСТУ ============ -->
+        <section class="sp_section sp_section_tight">
+            <div class="sp_inner">
+                <ul class="sp_features">
+                    <li class="sp_feature reveal" style="--i: 1">
+                        <span class="sp_feature_icon">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M10 10H6"/><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14"/><path d="M8 8v4"/><path d="M9 18h6"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                        </span>
+                        <p class="sp_feature_title">Автомобілі класу «В» та «С»</p>
+                        <p class="sp_feature_text">Транспортування на автомобілях екстреної (швидкої) медичної допомоги</p>
+                    </li>
+                    <li class="sp_feature reveal" style="--i: 2">
+                        <span class="sp_feature_icon">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
+                        <p class="sp_feature_title">Україна та Одеська область</p>
+                        <p class="sp_feature_text">Перевезення по всій території України та Одеській області</p>
+                    </li>
+                    <li class="sp_feature reveal" style="--i: 3">
+                        <span class="sp_feature_icon">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>
+                        </span>
+                        <p class="sp_feature_title">Медичний супровід</p>
+                        <p class="sp_feature_text">У дорозі пацієнта супроводжує лікар або медична сестра</p>
+                    </li>
+                    <li class="sp_feature reveal" style="--i: 4">
+                        <span class="sp_feature_icon">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg>
+                        </span>
+                        <p class="sp_feature_title">На договірній основі</p>
+                        <p class="sp_feature_text">Для пацієнтів, страхових компаній, громадян інших регіонів або країн</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ ЗАМОВИТИ ПОСЛУГУ ============ -->
+        <section class="sp_section sp_section_alt" id="order" aria-labelledby="orderTitle">
+            <div class="sp_inner">
+                <div class="order_card reveal">
+                    <div class="order_text">
+                        <span class="sp_eyebrow">Замовлення</span>
+                        <h2 class="sp_h2" id="orderTitle">Замовити послугу</h2>
+                        <p class="order_lead">
+                            Зв’яжіться з нами телефоном або електронною поштою.
+                        </p>
+                        <p class="order_org">
+                            КНП «Одеський обласний центр екстреної медичної допомоги і медицини катастроф»
+                            Одеської обласної ради
+                        </p>
+                    </div>
+
+                    <ul class="order_contacts">
+                        <li>
+                            <span class="order_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div>
+                                <p class="order_label">Телефон</p>
+                                <a href="tel:+380487263535" class="order_value">(048) 726-35-35</a>
+                                <a href="tel:0800508990" class="order_value">0 800 508 990</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="order_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <div>
+                                <p class="order_label">Електронна пошта</p>
+                                <a href="mailto:med-katastrof@ukr.net" class="order_value">med-katastrof@ukr.net</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="order_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <div>
+                                <p class="order_label">Адреса</p>
+                                <p class="order_value">65026, м. Одеса, вул. Гаванна, 1</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="order_actions">
+                        <a href="tel:+380487263535" class="hero_btn hero_btn_103 order_btn">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Зателефонувати
+                        </a>
+                        <a href="mailto:med-katastrof@ukr.net" class="hero_btn hero_btn_outline order_btn">
+                            <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            Написати листа
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Нагадування: ця послуга — не екстрений виклик -->
+                <p class="order_warn reveal" style="--i: 1">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                    <span>Якщо стан людини загрожує життю — не чекайте, телефонуйте <a href="tel:103">103</a>.</span>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+
+        <!-- Смуга екстреного виклику -->
+        <div class="footer_cta_wrap">
+            <div class="footer_cta">
+                <div class="footer_cta_text">
+                    <p class="footer_cta_label">Потрібна невідкладна допомога?</p>
+                    <p class="footer_cta_title">Телефонуйте <span>103</span> — цілодобово та безкоштовно</p>
+                </div>
+                <a href="tel:103" class="footer_cta_btn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+                    Зателефонувати 103
+                </a>
+            </div>
+        </div>
+
+        <div class="footer_inner">
+            <div class="footer_grid">
+
+                <!-- Про організацію + контакти -->
+                <div class="footer_brand">
+                    <a href="../../index.html" class="footer_logo_link" aria-label="На головну">
+                        <img src="../../imgindex/logo.png" alt="Логотип центру" class="footer_logo">
+                        <span class="footer_name">
+                            КНП «Одеський обласний центр екстреної медичної допомоги і медицини катастроф»
+                            <small>Одеської обласної ради</small>
+                        </span>
+                    </a>
+
+                    <ul class="footer_contacts">
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Телефон</p>
+                                <a href="tel:+380487263535">(048) 726-35-35</a>
+                                <a href="tel:0800508990">0 800 508 990</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">E-mail</p>
+                                <a href="mailto:med-katastrof@ukr.net">med-katastrof@ukr.net</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Адреса</p>
+                                <p class="footer_text">65026, м. Одеса, вул. Гаванна, 1</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="footer_social">
+                        <span class="footer_label">Слідкуйте за нами</span>
+                        <!-- Вставте посилання на сторінку Facebook -->
+                        <a href="#" class="footer_social_btn" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Про нас -->
+                <nav class="footer_col" aria-label="Про нас">
+                    <p class="footer_col_title">Про нас</p>
+                    <ul class="footer_links">
+                        <li><a href="../../index.html#team">Керівництво</a></li>
+                        <li><a href="../../index.html#history">Історія</a></li>
+                        <li><a href="../../index.html#news">Новини</a></li>
+                        <li><a href="#">Державні закупівлі</a></li>
+                        <li><a href="#">Нормативні акти</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Послуги + банер -->
+                <div class="footer_col">
+                    <nav aria-label="Послуги">
+                        <p class="footer_col_title">Послуги</p>
+                        <ul class="footer_links">
+                            <li><a href="../../index.html#services">Послуги</a></li>
+                            <li><a href="#">Учбово-тренувальний відділ</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Банер програми ментального здоров'я «Ти як?» -->
+                    <a href="https://howareu.com" class="footer_banner" target="_blank" rel="noopener">
+                        <span class="footer_banner_text">Піклуватися про ментальне здоров’я із</span>
+                        <span class="footer_banner_title">Ти як?</span>
+                        <span class="footer_banner_link">
+                            howareu.com
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Нижня смуга -->
+        <div class="footer_bottom">
+            <div class="footer_bottom_inner">
+                <p>© med-katastrof 2001–<span id="footerYear">2025</span></p>
+                <p class="footer_bottom_center">Одеський обласний центр екстреної медичної допомоги і медицини катастроф</p>
+                <button type="button" class="footer_top_btn" id="toTop">
+                    Нагору
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ МОДАЛКА КОНТАКТІВ ============ -->
+    <div class="modal" id="contactsModal" role="dialog" aria-modal="true" aria-labelledby="contactsTitle" aria-hidden="true">
+        <div class="modal_overlay" data-close-modal></div>
+
+        <div class="modal_box">
+            <button type="button" class="modal_close" data-close-modal aria-label="Закрити">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            <h2 class="modal_title" id="contactsTitle">Контакти</h2>
+
+            <a href="tel:103" class="emergency_card">
+                <span class="emergency_icon">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>
+                </span>
+                <span>
+                    <span class="emergency_label">Екстрена лінія</span>
+                    <span class="emergency_number">103</span>
+                </span>
+            </a>
+
+            <ul class="contacts_list">
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div>
+                        <p class="contacts_label">Гарячі лінії</p>
+                        <a href="tel:+380487263535" class="contacts_link">(048) 726-35-35</a>
+                        <a href="tel:0800508990" class="contacts_link">0 800 508 990</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <div>
+                        <p class="contacts_label">Електронна пошта</p>
+                        <a href="mailto:med-katastrof@ukr.net" class="contacts_link">med-katastrof@ukr.net</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <p class="contacts_label">Адреса</p>
+                        <p class="contacts_text">м. Одеса, вул. Гаванна, 1</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============ МОБІЛЬНЕ МЕНЮ ============ -->
+    <div class="mobile_menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile_overlay" data-close-mobile></div>
+
+        <aside class="mobile_panel">
+            <div class="mobile_head">
+                <span class="mobile_title">Меню</span>
+                <button type="button" class="modal_close mobile_close" data-close-mobile aria-label="Закрити меню">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Пункти генеруються з десктопного меню в script.js -->
+            <nav class="mobile_nav" aria-label="Мобільне меню">
+                <ul class="mobile_list" id="mobileList"></ul>
+            </nav>
+
+            <a href="tel:103" class="mobile_emergency">Екстрена лінія 103</a>
+        </aside>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Навчання на базі Арцизької станції Центру ЕМДіМК. — Центр ЕМД та МК Одеської області</title>
+    <meta name="description" content="За результатами обласних навчань «Межлимання-2024» керівництвом Центру було прийнято рішення щодо доцільності проведення низки локальних навчань за…">
+    <link rel="stylesheet" href="article.css">
+    <script src="article.js" defer></script>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header_wrapper">
+        <div class="menu_wrapper">
+
+            <!-- Логотип -->
+            <a href="../../index.html" class="logo_link" aria-label="На головну">
+                <img src="../../imgindex/logo.png"
+                     alt="Центр екстреної медичної допомоги та медицини катастроф Одеської області"
+                     class="logo_img">
+            </a>
+
+            <!-- Десктопне меню -->
+            <nav class="menu_nav_wrapper" aria-label="Головне меню">
+                <ul class="nav_list">
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Послуги
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../../services/Emergency%20medical%20services/emergencymedicalservices.html">Екстрена швидка медична допомога</a></li>
+                                <li><a href="../../services/Emergency%20medical%20transport/emergencymedicaltransport.html">Екстрене медичне перевезення</a></li>
+                                <li><a href="../../services/Emergency%20consultative%20care/Emergencyconsultativecare.html">Надання екстреної консультативної медичної допомоги</a></li>
+                                <li><a href="../../services/Calls%20for%20hearing%20impaired/callsforhearingimpaired.html">Прийом викликів від населення з вадами слуху та мови</a></li>
+                                <li><a href="../../services/Medicines%20availability/medicinesavailability.html">Наявність лікарських засобів</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Організація
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="#">Про нас</a></li>
+                                <li><a href="../../organization/Historyy/history.html">Історія</a></li>
+                                <li><a href="../../organization/Structural%20units/structuralunits.html">Структурні підрозділи</a></li>
+                                <li><a href="../../index.html#team">Керівництво</a></li>
+                                <li><a href="../../organization/Activity/activity.html">Діяльність</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Учбово-тренувальний відділ
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../../training%20department/Medical%20Training%20(Level%20I)/medicaltraining1.html">Медична підготовка (I рівень)</a></li>
+                                <li><a href="../../training%20department/Medical%20Training%20(Level%20%20II)/medicaltraining2.html">Медична підготовка (II рівень)</a></li>
+                                <li><a href="../../training%20department/Medical%20Training%20(Level%20%20III)/medicaltraining3.html">Медична підготовка (III рівень)</a></li>
+                                <li><a href="../../training%20department/Professional%20Development/professionaldevelopment.html">Безперервний професійний розвиток</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav_item is_current"><a href="../News/news.html" class="nav_link">Новини</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Фотогалерея</a></li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Державні закупівлі
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../../procurement/Rationale/rationale.html">Обґрунтування</a></li>
+                                <li><a href="../../procurement/Financial%20reports/finreports.html">Фінансова звітність</a></li>
+                                <li><a href="../../procurement/Financial%20plan/finplan.html">Фінансовий план</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav_item"><a href="../../regulations/Regulations/regulations.html" class="nav_link">Нормативні акти</a></li>
+                    <li class="nav_item"><a href="../../contacts/Contacts/contacts.html" class="nav_link">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <!-- Праворуч: сплит-кнопка + бургер -->
+            <div class="header_actions">
+                <div class="split_btn">
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Телефони">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </button>
+                    <span class="split_btn_divider" aria-hidden="true"></span>
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Електронна пошта">
+                        <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </button>
+                </div>
+
+                <button type="button" class="burger_btn" id="burgerBtn" aria-label="Відкрити меню">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="sp">
+
+        <!-- ============ ЗАГОЛОВОК НОВИНИ ============ -->
+        <section class="sp_hero ar_hero">
+            <div class="sp_inner ar_inner">
+                <nav class="sp_crumbs reveal" aria-label="Навігація">
+                    <a href="../../index.html">Головна</a>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <a href="../News/news-5.html">Новини</a>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <span aria-current="page">Навчання на базі Арцизької станції Центру ЕМДіМК.</span>
+                </nav>
+
+                <div class="ar_meta reveal" style="--i: 1">
+                    <span class="ar_tag">Новина</span>
+                    <time datetime="2024-08-01"><svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>1 серпня 2024</time>
+                    <span><svg class="icon" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg>363 переглядів</span>
+                </div>
+                <h1 class="ar_title reveal" style="--i: 1">Навчання на базі Арцизької станції Центру ЕМДіМК.</h1>
+            </div>
+        </section>
+
+        <!-- ============ ТЕКСТ НОВИНИ ============ -->
+        <section class="ar_section">
+            <div class="sp_inner ar_inner">
+                <figure class="ar_cover reveal_fade">
+                    <img src="../../imgindex/news/b16eeefa-4071-4180-94f3-42dc98d87cb2.jpeg" alt="" onerror="this.parentElement.classList.add('no_img'); this.remove()">
+                </figure>
+
+                <article class="ar_content">
+<p>✅За результатами обласних навчань «Межлимання-2024» керівництвом Центру було прийнято рішення щодо доцільності проведення низки локальних навчань за місцями дислокації наших станцій в області.<br/>🚒🚑Перші такі навчання було вирішено провести на базі Арцизької станції.<br/>🤝Змагання проходили за підтримки Одеської обласної державної/ військової адміністрації, Одеської обласної ради, Департаменту охорони здоров’я ООВА та за сприяння Арцизького міського голови Сергія Парпуланського. На заході також були присутні голова постійної комісії Одеської облради з питань охорони здоров’я Дмитро Чапір, голова Болградської військової адміністрації Михайло Шарафаненко, перша заступниця голови Білгород-Дністровської військової адміністрації Тетяна Домчинська та генеральна директорка Одеського обласного Центру ЕМД та МК Світлана Ізосімова з керівним складом Центру.<br/>👨🏻‍⚕️Навчання відбулися 26 липня 2024 року на базі місцевої школи. Приймали участь 6 бригад ЕМД, які до моменту змагань протягом місяця готувались із допомогою інструкторів навчально-тренувального відділу Центру. Також до змагань доєднались медики Арцизької центральної опорної лікарні та команда ДСНС Арцизького підрозділу. На завершення навчань було продемонстровано надання допомоги на місці масового враження та хімічного ураження.<br/>🏥Захід був орієнтований на відпрацювання медичних навичок у різних складних ситуаціях, а також навичок комунікації та роботи в команді, у тому числі в координації з працівниками ДСНС. Досвід проведення навчань в Арцизі показав, що доцільно проводити навчання в двох локаціях – на майданчику та у відділенні екстреної допомоги багатопрофільної лікарні задля більшої злагодженості. Цей принцип буде апробовано вже на наступних навчаннях у вересні.<br/>🥇За результатами роботи журі Почесне перше місце посіла Татарбунарська підстанція ЕМД.<br/>Щиро вітаємо колег!<br/>🇺🇦В рамках заходу голова Болградської військової адміністрації Михайло Шарафаненко від імені голови Одеської обласної воєнної адміністрації Кіпера Олега Олександровича передав колективу Татарбунарської підстанції автомобіль швидкої медичної допомоги CITROEN JUMPER «С» класу, що дає змогу забезпечити екстреною медичною допомогою всю трасу Одеса-Рені повнопривідними автомобілями.<br/>🎁Зазначимо, що, окрім грамот та нагород, структурні підрозділи Центру отримали також цінні подарунки від Незалежної профспілкової організації до дня медичного працівника України.<br/>🚑Від імені Центру висловлюємо подяку Міністерству охорони здоров’я, керівництву області, представникам адміністрації громад, керівництву місцевої школи №5, керівництву ДСНС та всім, хто долучився до організації та проведення навчань медиків екстренки Арцизької станції.<br/>ℹ️Кожен такий захід — це внесок у благополуччя мешканців регіону та відпрацювання навичок координації та спільних зусиль для подолання можливих масових випадків в регіоні.</p>
+<p>Одеська обласна державна адміністрація<br/>Департамент охорони здоров’я Одеської обласної державної адміністрації<br/>Головне управління ДСНС України в Одеській області<br/>Сергей Парпуланський</p>
+<figure class="ar_media">
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/1e89ebc2-3201-431d-9de8-4ad564f32336-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/9fe967b1-98b3-4ecb-8e75-d6dda3b13408-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/5f764a34-5b19-4d91-bb9c-5d9cd2b5d233-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/46d4aaae-ed43-40c9-b18a-976dd346eb17-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/9287b51d-0c14-49de-b20c-14d07d4924b7-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/326aaf10-5982-4e95-a32f-7c0c8cc9ee74-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/98a66ddc-5d7d-4086-8495-6e44e5a8d7dc-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/c8ac8bdb-a8bd-4fa2-b21e-08f7d075d9ce-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/ae644886-8287-4d2f-a693-1dad78a3094d-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/e4105ded-02c8-429b-82b7-03c77f9067ec-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/f350d4aa-275f-4d24-869b-98ff54c63345-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/dbec90a7-f7a4-47b9-bd8d-dd4cc6cfd69c-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/8e022b39-f3b4-4408-92a0-ff506506e3b0-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/1dbadd86-f79b-467c-9e8b-972f60c4333b-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/f693f40e-103a-49bc-abe5-9c5c070f0adc-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/d918799a-5aeb-435b-9818-7a772bbc172b-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/9906ad13-cd87-46d4-8b0e-99b30604bfac-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/f63f6b16-e23f-4e67-a278-b6075e0ad63b-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/2f947ca1-e108-4e68-a382-b9a22e68f39d-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/e181436c-a3f5-493a-b3a7-ca9f571bf032-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/bd0a61b3-c945-4b7b-a7e2-2d7545ec6c10-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/08f31755-a404-465e-88e7-45e307821b31-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/68bb6479-b761-40d7-be88-4251c5a1721f-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/7de93afe-64f5-4ba0-a4dd-824cd77e6ce7-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/0281dc81-a764-4bbc-8a42-54067f776680-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/c78a723b-4422-4520-aeac-da8e2f439cde-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/a05ddf4a-2d9c-40f8-8f3a-26cf019d163d-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/0571dc93-df52-4868-9cf9-3ba283e91e4d-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/7f7511ac-62c3-4bbe-b180-c228e2f31281-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/a6715459-e566-432d-b0fd-706b1636a1df-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/f9517a59-0b9e-4ce7-8893-7c746efce29e-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/3396c62a-e651-4bbd-924d-15ad7a2e0f96-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/8d3e909a-e95e-48b8-8ab1-218d0e1d0d98-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/12e87c83-f37d-4d25-9d4c-7e542209352e-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/f501ce7c-32ed-4ec3-9cf9-097071a5b26d-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/43506275-791a-4cd3-b86f-c05efc89dea3-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/dbbf131f-a8f2-42b0-b48b-7e531304404b-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/d85e3627-147b-4d78-9e9e-82d6326e20a2-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/1627bb8a-b42d-48a8-83f0-3cd426bb1ec6-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/4d5b84e9-e96b-4028-9031-0f5bd71112ea-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/445000e1-bd9c-422a-a111-56da1b1547b7-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/116a4c27-30cb-4a22-a8e5-d002d7a7eb99-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/c13e0fce-9804-4eec-8eaa-156179831d47-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/d7831d41-34bc-4115-bc58-373a24bd2319-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/5f7321f7-332c-46d4-a7ed-7d1f5d4d9a76-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/c6e694cd-cdb2-4581-9f53-e69ef4da7142-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/dc0883c3-5285-4375-870b-bc321955d8d2-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/a7f5c382-8aef-40e4-b5d7-37b741de2a1f-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/53d718a1-a742-4f42-a74b-951943fb7032-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/84693923-8490-45dd-a39a-82ca0aabbde4-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/320dcee3-f87c-436e-92d5-5a7ea0d8c6cf-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/18bb142f-daba-486d-94c2-96d5ed03cea0-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/72f51617-78a0-489f-a3b9-e11f091d3447-1024x683.jpeg"/></figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/9bdf9d7c-4d94-42c0-beeb-99f16e2a0093-1024x683.jpeg"/></figure>
+</figure>
+<figure class="ar_media"><img alt="" loading="lazy" src="../../imgindex/news/fa57cff0-b514-442a-bbe7-2011f26e62fe-1024x693.jpeg"/></figure>
+                </article>
+
+                <div class="ar_footer">
+                    <a href="../News/news-5.html" class="ar_back"><svg class="icon" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Усі новини</a>
+                    <div class="ar_share">
+                        <span>Поділитися:</span>
+                        <a href="#" class="ar_share_btn" data-share="facebook" aria-label="Поділитися у Facebook" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="ar_share_btn" data-share="telegram" aria-label="Поділитися в Telegram" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                        </a>
+                        <a href="#" class="ar_share_btn" data-share="viber" aria-label="Поділитися у Viber">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </a>
+                        <button type="button" class="ar_share_btn" data-share="copy" aria-label="Скопіювати посилання">
+                            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <nav class="ar_nav" aria-label="Інші новини поруч">
+                    <a href="hochemo-podilitisya-slovami-vdyachnosti-pacziyentki-yakij-vc.html" class="ar_nav_link"><small><svg class="icon" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Новіша</small><b>Хочемо поділитися словами вдячності пацієнтки, якій вчора, 12 серпня 2024 року, була надана медична допомога бригадою №11 підстанції №1 Центру ЕМДіМК.</b></a>
+                    <a href="neshhodavno-provedeni-navchannya-brigad-mediczini-katastrof.html" class="ar_nav_link ar_nav_next"><small>Старіша <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></small><b>Нещодавно проведені навчання бригад медицини катастроф «Міжлимання — 2024» продемонстрували певні прогалини в підготовці медичних працівників по окремим напрямкам роботи, що стало мотивом для корекції плану підготовки співробітників до кінця цього року.</b></a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- ============ ІНШІ НОВИНИ ============ -->
+        <section class="nw_section ar_related" aria-labelledby="relTitle">
+            <div class="sp_inner">
+                <h2 class="ar_rel_title" id="relTitle">Інші новини</h2>
+                <div class="nw_grid">
+                    <article class="nw_card reveal" data-tag="Новина" style="--i: 0">
+                        <a href="neshhodavno-provedeni-navchannya-brigad-mediczini-katastrof.html" class="nw_link">
+                            <figure class="nw_img">
+                                <img src="../../imgindex/news/387e754e-e6b3-4f28-81ff-a26a8f4f6a7c.jpeg" alt="" loading="lazy" onerror="this.parentElement.classList.add('no_img'); this.remove()">
+                                <span class="nw_tag">Новина</span>
+                            </figure>
+                            <div class="nw_body">
+                                <div class="nw_meta">
+                                    <time datetime="2024-07-02"><svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>2 липня 2024</time>
+                                    <span><svg class="icon" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg>252</span>
+                                </div>
+                                <h2 class="nw_title">Нещодавно проведені навчання бригад медицини катастроф «Міжлимання — 2024» продемонстрували певні прогалини в підготовці медичних працівників по окремим напрямкам роботи, що стало мотивом для корекції плану підготовки співробітників до кінця цього року.</h2>
+                                <p class="nw_text">Як результат, в Центрі розпочато масштабні навчання керівників станцій, головних фельдшерів та працівників бригад екстреної медичної допомоги, які проходять як на базі начально-тренувального відділу так і на місцях дислокації…</p>
+                                <span class="nw_more">Детальніше <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="nw_card reveal" data-tag="Новина" style="--i: 1">
+                        <a href="v-odeskomu-oblasnomu-czentri-emdimk-buli-provedeni-masshtabn.html" class="nw_link">
+                            <figure class="nw_img">
+                                <img src="../../imgindex/news/bcd01de8-57de-418f-94cb-a99a13bfcb81.jpeg" alt="" loading="lazy" onerror="this.parentElement.classList.add('no_img'); this.remove()">
+                                <span class="nw_tag">Новина</span>
+                            </figure>
+                            <div class="nw_body">
+                                <div class="nw_meta">
+                                    <time datetime="2024-06-10"><svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>10 червня 2024</time>
+                                    <span><svg class="icon" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg>275</span>
+                                </div>
+                                <h2 class="nw_title">В Одеському обласному Центрі ЕМДіМК були проведені масштабні навчання бригад медицини катастроф «МІЖЛИМАННЯ-2024»</h2>
+                                <p class="nw_text">Захід був організований керівництвом Одеського обласного центру екстреної медичної допомоги та медицини катастроф спільно з Незалежною профспілковою організацією Центру, відділом стратегічного планування,Навчально-тренувальним…</p>
+                                <span class="nw_more">Детальніше <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="nw_card reveal" data-tag="Новина" style="--i: 2">
+                        <a href="naczionalnij-portal-z-imunizacziyi-3.html" class="nw_link">
+                            <figure class="nw_img">
+                                <img src="../../imgindex/news/1932f7b0-e0c3-45e2-9be3-c1e443922afc.jpeg" alt="" loading="lazy" onerror="this.parentElement.classList.add('no_img'); this.remove()">
+                                <span class="nw_tag">Новина</span>
+                            </figure>
+                            <div class="nw_body">
+                                <div class="nw_meta">
+                                    <time datetime="2024-05-14"><svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>14 травня 2024</time>
+                                    <span><svg class="icon" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg>211</span>
+                                </div>
+                                <h2 class="nw_title">Національний портал з імунізації</h2>
+                                <p class="nw_text">prezentacziya-npi Скачать</p>
+                                <span class="nw_more">Детальніше <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+
+        <!-- Смуга екстреного виклику -->
+        <div class="footer_cta_wrap">
+            <div class="footer_cta">
+                <div class="footer_cta_text">
+                    <p class="footer_cta_label">Потрібна невідкладна допомога?</p>
+                    <p class="footer_cta_title">Телефонуйте <span>103</span> — цілодобово та безкоштовно</p>
+                </div>
+                <a href="tel:103" class="footer_cta_btn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+                    Зателефонувати 103
+                </a>
+            </div>
+        </div>
+
+        <div class="footer_inner">
+            <div class="footer_grid">
+
+                <!-- Про організацію + контакти -->
+                <div class="footer_brand">
+                    <a href="../../index.html" class="footer_logo_link" aria-label="На головну">
+                        <img src="../../imgindex/logo.png" alt="Логотип центру" class="footer_logo">
+                        <span class="footer_name">
+                            КНП «Одеський обласний центр екстреної медичної допомоги і медицини катастроф»
+                            <small>Одеської обласної ради</small>
+                        </span>
+                    </a>
+
+                    <ul class="footer_contacts">
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Телефон</p>
+                                <a href="tel:+380487263535">(048) 726-35-35</a>
+                                <a href="tel:0800508990">0 800 508 990</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">E-mail</p>
+                                <a href="mailto:med-katastrof@ukr.net">med-katastrof@ukr.net</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Адреса</p>
+                                <p class="footer_text">65026, м. Одеса, вул. Гаванна, 1</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="footer_social">
+                        <span class="footer_label">Слідкуйте за нами</span>
+                        <!-- Вставте посилання на сторінку Facebook -->
+                        <a href="https://www.facebook.com/EMD103Odessa" class="footer_social_btn" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Про нас -->
+                <nav class="footer_col" aria-label="Про нас">
+                    <p class="footer_col_title">Про нас</p>
+                    <ul class="footer_links">
+                        <li><a href="../../index.html#team">Керівництво</a></li>
+                        <li><a href="../../organization/Historyy/history.html">Історія</a></li>
+                        <li><a href="../News/news.html">Новини</a></li>
+                        <li><a href="../../procurement/Rationale/rationale.html">Державні закупівлі</a></li>
+                        <li><a href="../../regulations/Regulations/regulations.html">Нормативні акти</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Послуги + банер -->
+                <div class="footer_col">
+                    <nav aria-label="Послуги">
+                        <p class="footer_col_title">Послуги</p>
+                        <ul class="footer_links">
+                            <li><a href="../../index.html#services">Послуги</a></li>
+                            <li><a href="../../training%20department/Medical%20Training%20(Level%20I)/medicaltraining1.html">Учбово-тренувальний відділ</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Банер програми ментального здоров'я «Ти як?» -->
+                    <a href="https://howareu.com" class="footer_banner" target="_blank" rel="noopener">
+                        <span class="footer_banner_text">Піклуватися про ментальне здоров’я із</span>
+                        <span class="footer_banner_title">Ти як?</span>
+                        <span class="footer_banner_link">
+                            howareu.com
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Нижня смуга -->
+        <div class="footer_bottom">
+            <div class="footer_bottom_inner">
+                <p>© med-katastrof 2001–<span id="footerYear">2025</span></p>
+                <p class="footer_bottom_center">Одеський обласний центр екстреної медичної допомоги і медицини катастроф</p>
+                <button type="button" class="footer_top_btn" id="toTop">
+                    Нагору
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ МОДАЛКА КОНТАКТІВ ============ -->
+    <div class="modal" id="contactsModal" role="dialog" aria-modal="true" aria-labelledby="contactsTitle" aria-hidden="true">
+        <div class="modal_overlay" data-close-modal></div>
+
+        <div class="modal_box">
+            <button type="button" class="modal_close" data-close-modal aria-label="Закрити">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            <h2 class="modal_title" id="contactsTitle">Контакти</h2>
+
+            <a href="tel:103" class="emergency_card">
+                <span class="emergency_icon">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>
+                </span>
+                <span>
+                    <span class="emergency_label">Екстрена лінія</span>
+                    <span class="emergency_number">103</span>
+                </span>
+            </a>
+
+            <ul class="contacts_list">
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div>
+                        <p class="contacts_label">Гарячі лінії</p>
+                        <a href="tel:+380487263535" class="contacts_link">(048) 726-35-35</a>
+                        <a href="tel:0800508990" class="contacts_link">0 800 508 990</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <div>
+                        <p class="contacts_label">Електронна пошта</p>
+                        <a href="mailto:med-katastrof@ukr.net" class="contacts_link">med-katastrof@ukr.net</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <p class="contacts_label">Адреса</p>
+                        <p class="contacts_text">м. Одеса, вул. Гаванна, 1</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============ МОБІЛЬНЕ МЕНЮ ============ -->
+    <div class="mobile_menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile_overlay" data-close-mobile></div>
+
+        <aside class="mobile_panel">
+            <div class="mobile_head">
+                <span class="mobile_title">Меню</span>
+                <button type="button" class="modal_close mobile_close" data-close-mobile aria-label="Закрити меню">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Пункти генеруються з десктопного меню в script.js -->
+            <nav class="mobile_nav" aria-label="Мобільне меню">
+                <ul class="mobile_list" id="mobileList"></ul>
+            </nav>
+
+            <a href="tel:103" class="mobile_emergency">Екстрена лінія 103</a>
+        </aside>
+    </div>
+
+</body>
+</html>

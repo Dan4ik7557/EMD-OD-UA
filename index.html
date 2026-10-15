@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центр екстреної медичної допомоги та медицини катастроф Одеської області</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Карта зон покриття: Leaflet (безкоштовно, без API-ключа) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+    <script src="zones.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header_wrapper">
+        <div class="menu_wrapper">
+
+            <!-- Логотип -->
+            <a href="index.html" class="logo_link" aria-label="На головну">
+                <img src="imgindex/logo.png"
+                     alt="Центр екстреної медичної допомоги та медицини катастроф Одеської області"
+                     class="logo_img">
+            </a>
+
+            <!-- Десктопне меню -->
+            <nav class="menu_nav_wrapper" aria-label="Головне меню">
+                <ul class="nav_list">
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Послуги
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="services/Emergency%20medical%20services/emergencymedicalservices.html">Екстрена швидка медична допомога</a></li>
+                                <li><a href="services/Emergency%20medical%20transport/emergencymedicaltransport.html">Екстрене медичне перевезення</a></li>
+                                <li><a href="services/Emergency%20consultative%20care/Emergencyconsultativecare.html">Надання екстреної консультативної медичної допомоги</a></li>
+                                <li><a href="services/Calls%20for%20hearing%20impaired/callsforhearingimpaired.html">Прийом викликів від населення з вадами слуху та мови</a></li>
+                                <li><a href="services/Medicines%20availability/medicinesavailability.html">Наявність лікарських засобів</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Організація
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="#">Про нас</a></li>
+                                <li><a href="organization/Historyy/history.html">Історія</a></li>
+                                <li><a href="organization/Structural%20units/structuralunits.html">Структурні підрозділи</a></li>
+                                <li><a href="#team">Керівництво</a></li>
+                                <li><a href="organization/Activity/activity.html">Діяльність</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Учбово-тренувальний відділ
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="training%20department/Medical%20Training%20(Level%20I)/medicaltraining1.html">Медична підготовка (I рівень)</a></li>
+                                <li><a href="training%20department/Medical%20Training%20(Level%20%20II)/medicaltraining2.html">Медична підготовка (II рівень)</a></li>
+                                <li><a href="training%20department/Medical%20Training%20(Level%20%20III)/medicaltraining3.html">Медична підготовка (III рівень)</a></li>
+                                <li><a href="training%20department/Professional%20Development/professionaldevelopment.html">Безперервний професійний розвиток</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav_item"><a href="news/News/news.html" class="nav_link">Новини</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Фотогалерея</a></li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Державні закупівлі
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="procurement/Rationale/rationale.html">Обґрунтування</a></li>
+                                <li><a href="procurement/Financial%20reports/finreports.html">Фінансова звітність</a></li>
+                                <li><a href="procurement/Financial%20plan/finplan.html">Фінансовий план</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav_item"><a href="regulations/Regulations/regulations.html" class="nav_link">Нормативні акти</a></li>
+                    <li class="nav_item"><a href="contacts/Contacts/contacts.html" class="nav_link">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <!-- Праворуч: сплит-кнопка + бургер -->
+            <div class="header_actions">
+                <div class="split_btn">
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Телефони">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </button>
+                    <span class="split_btn_divider" aria-hidden="true"></span>
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Електронна пошта">
+                        <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </button>
+                </div>
+
+                <button type="button" class="burger_btn" id="burgerBtn" aria-label="Відкрити меню">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <!-- Фото лікаря: правий край, плавно розчиняється у фон -->
+        <div class="hero_photo" aria-hidden="true">
+            <img src="imgindex/home-1.png" alt="">
+        </div>
+
+        <div class="hero_inner">
+            <div class="hero_content">
+
+                <!-- 1. Бейдж -->
+                <div class="hero_badge hero_anim" style="--i: 0">
+                    <span class="hero_badge_icon">
+                        <img src="imgindex/Coat_of_Arms_of_Odesa.svg" alt="Герб Одеської області">
+                    </span>
+                    <span class="hero_badge_text">КНП «Одеський обласний центр ЕМД та МК» Одеської обласної ради</span>
+                </div>
+
+                <!-- 2. Заголовок -->
+                <h1 class="hero_title hero_anim" style="--i: 1">
+                    Одеський обласний центр
+                    <span class="hero_title_accent">екстреної медичної допомоги</span>
+                    і медицини катастроф
+                </h1>
+
+                <!-- 3. Підзаголовок -->
+                <p class="hero_subtitle hero_anim" style="--i: 2">
+                    Цілодобова екстрена медична допомога та медична евакуація для мешканців
+                    та гостей Одеської області 24/7.
+                </p>
+
+                <div class="hero_facts hero_anim" style="--i: 3">
+                    <span class="hero_fact">
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Працюємо цілодобово
+                    </span>
+                    <span class="hero_fact">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                        Безкоштовно для населення
+                    </span>
+                </div>
+
+                <!-- 4. Кнопки -->
+                <div class="hero_actions hero_anim" style="--i: 4">
+                    <a href="tel:103" class="hero_btn hero_btn_103" aria-label="Зателефонувати 103 — екстрений виклик">
+                        <svg class="icon hero_phone_icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+                        <span><span class="hero_103_num">103</span> — Екстрений виклик</span>
+                    </a>
+
+                    <a href="services/Calls%20for%20hearing%20impaired/callsforhearingimpaired.html" class="hero_btn hero_btn_deaf">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"/></svg>
+                        <span>Для осіб з порушеннями<br class="hero_br"> слуху та мовлення</span>
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ШВИДКІ НОМЕРИ ============ -->
+    <section class="qc" aria-label="Телефони екстрених служб">
+        <div class="qc_card reveal">
+
+            <!-- 103 -->
+            <div class="qc_item qc_item_main reveal" style="--i: 1">
+                <span class="qc_icon">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>
+                </span>
+                <span class="qc_label">Швидка допомога</span>
+                <a href="tel:103" class="qc_number">103</a>
+                <p class="qc_desc">Прийом викликів від населення</p>
+                <p class="qc_alt">
+                    або <a href="tel:+380487533100">(048) 753-31-00</a>
+                </p>
+            </div>
+
+            <!-- 112 -->
+            <div class="qc_item reveal" style="--i: 2">
+                <span class="qc_icon">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                </span>
+                <span class="qc_label">Єдиний номер</span>
+                <a href="tel:112" class="qc_number">112</a>
+                <p class="qc_desc">Система екстреної допомоги населенню</p>
+            </div>
+
+            <!-- Лікар-консультант -->
+            <div class="qc_item reveal" style="--i: 3">
+                <span class="qc_icon">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>
+                </span>
+                <span class="qc_label">Консультація</span>
+                <a href="tel:+380487533108" class="qc_number qc_number_sm">(048) 753-31-08</a>
+                <p class="qc_desc">Лікар-консультант</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ ПОСЛУГИ ============ -->
+    <section class="svc" id="services">
+        <div class="svc_inner">
+
+            <div class="svc_head reveal">
+                <span class="svc_eyebrow">Що ми робимо</span>
+                <h2 class="svc_title">Послуги</h2>
+                <p class="svc_lead">Допомагаємо цілодобово — від прийому виклику до доставки пацієнта в лікарню</p>
+            </div>
+
+            <div class="svc_body" id="svcBody">
+
+                <!-- Лінії-з'єднувачі між картками та ілюстрацією (малює script.js) -->
+                <svg class="svc_lines" id="svcLines" aria-hidden="true"></svg>
+
+                <ol class="svc_list">
+                    <li class="svc_card reveal" style="--i: 1" data-anchor="1">
+                        <a href="services/Emergency%20medical%20transport/emergencymedicaltransport.html" class="svc_link">
+                            <span class="svc_num" aria-hidden="true">01</span>
+                            <span class="svc_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M10 10H6"/><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14"/><path d="M8 8v4"/><path d="M9 18h6"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                            </span>
+                            <span class="svc_text">Екстрене медичне перевезення</span>
+                        </a>
+                    </li>
+
+                    <li class="svc_card reveal" style="--i: 2" data-anchor="2">
+                        <a href="services/Emergency%20medical%20services/emergencymedicalservices.html" class="svc_link">
+                            <span class="svc_num" aria-hidden="true">02</span>
+                            <span class="svc_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+                            </span>
+                            <span class="svc_text">Надання екстреної (швидкої) медичної допомоги</span>
+                        </a>
+                    </li>
+
+                    <li class="svc_card reveal" style="--i: 3" data-anchor="3">
+                        <a href="services/Emergency%20consultative%20care/Emergencyconsultativecare.html" class="svc_link">
+                            <span class="svc_num" aria-hidden="true">03</span>
+                            <span class="svc_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg>
+                            </span>
+                            <span class="svc_text">Надання екстреної консультативної медичної допомоги</span>
+                        </a>
+                    </li>
+                </ol>
+
+                <!-- Ілюстрація «EMERGENCY» (inline SVG, окремий файл не потрібен) -->
+                <div class="svc_art reveal_fade" aria-hidden="true">
+                    <svg class="svc_art_svg" viewBox="0 0 600 370">
+                        <!-- Внутрішні пунктирні зв'язки -->
+                        <g class="svc_dash">
+                            <path d="M150 128 H232 V104 H262"/>
+                            <path d="M200 206 H240 V163 H293"/>
+                            <path d="M307 163 H380"/>
+                            <path d="M402 110 V92 H545 L575 236 H508"/>
+                            <path d="M338 96 H358 V118 H380"/>
+                            <path d="M201 330 H489"/>
+                        </g>
+
+                        <!-- Лікар -->
+                        <g class="svc_doctor">
+                            <path d="M262 124 v-20 q0 -22 22 -26 l16 12 l16 -12 q22 4 22 26 v20 z" fill="#fff" stroke="#1e293b" stroke-width="3" stroke-linejoin="round"/>
+                            <path d="M300 90 l-5 7 l5 24 l5 -24 z" fill="#dc2626"/>
+                            <path d="M284 80 q-10 18 -2 32" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="282" cy="114" r="4" fill="#fff" stroke="#1e293b" stroke-width="2.5"/>
+                            <circle cx="300" cy="50" r="19" fill="#fff" stroke="#1e293b" stroke-width="3"/>
+                            <path d="M281 47 q1 -22 19 -22 q18 0 19 22 q-7 -9 -19 -9 q-12 0 -19 9 z" fill="#1e293b"/>
+                        </g>
+
+                        <!-- Серце з пульсом -->
+                        <g class="svc_heart">
+                            <path transform="translate(92 104) scale(2.2)" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="#dc2626"/>
+                        </g>
+                        <polyline points="40,134 92,134 100,118 110,152 120,124 128,136 150,136" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+                        <!-- Шприц -->
+                        <g transform="translate(152 180) scale(1.9)" fill="none" stroke="#1e293b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/>
+                        </g>
+
+                        <!-- Піпетка + крапля -->
+                        <rect x="293" y="146" width="14" height="30" rx="6" fill="#1e293b"/>
+                        <path d="M295 176 l5 16 l5 -16 z" fill="#fff" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round"/>
+                        <path class="svc_drop" transform="translate(288 194)" d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" fill="#dc2626"/>
+
+                        <!-- Телефон SOS -->
+                        <rect x="380" y="110" width="44" height="72" rx="8" fill="#fff" stroke="#1e293b" stroke-width="3"/>
+                        <path d="M394 120 h16" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+                        <text x="402" y="152" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b" font-family="system-ui, sans-serif">SOS</text>
+                        <circle cx="402" cy="171" r="3.5" fill="none" stroke="#1e293b" stroke-width="2"/>
+
+                        <!-- Мигалка -->
+                        <g transform="translate(468 150) scale(2.4)" fill="none" stroke="#1e293b" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 18v-6a5 5 0 1 1 10 0v6" fill="#dc2626"/>
+                            <path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z" fill="#fff"/>
+                            <g class="svc_rays"><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/></g>
+                        </g>
+
+                        <!-- Лінії швидкості -->
+                        <g class="svc_speed" stroke="#1e293b" stroke-width="3" stroke-linecap="round">
+                            <path d="M40 238 H100"/><path d="M56 252 H104"/><path d="M48 266 H100"/><path d="M64 280 H98"/>
+                        </g>
+
+                        <!-- Напис -->
+                        <text x="108" y="288" textLength="470" lengthAdjust="spacingAndGlyphs" font-size="84" font-weight="800" font-style="italic" fill="#dc2626" font-family="system-ui, 'Segoe UI', Arial, sans-serif">EMERGENCY</text>
+
+                        <!-- Колеса -->
+                        <g class="svc_wheel" fill="#fff" stroke="#1e293b">
+                            <circle cx="175" cy="330" r="26" stroke-width="3"/>
+                            <circle cx="175" cy="330" r="15" stroke-width="2" stroke-dasharray="4 3"/>
+                            <circle cx="175" cy="330" r="5" stroke-width="2"/>
+                        </g>
+                        <g class="svc_wheel" fill="#fff" stroke="#1e293b">
+                            <circle cx="515" cy="330" r="26" stroke-width="3"/>
+                            <circle cx="515" cy="330" r="15" stroke-width="2" stroke-dasharray="4 3"/>
+                            <circle cx="515" cy="330" r="5" stroke-width="2"/>
+                        </g>
+
+                        <!-- Точки, до яких ведуть лінії від карток -->
+                        <circle class="svc_anchor" data-anchor="1" cx="262" cy="104" r="4"/>
+                        <circle class="svc_anchor" data-anchor="2" cx="40" cy="134" r="4"/>
+                        <circle class="svc_anchor" data-anchor="3" cx="149" cy="330" r="4"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ФАКТИ ПРО НАС ============ -->
+    <section class="facts" aria-labelledby="factsTitle">
+        <div class="facts_inner">
+
+            <!-- Ліва панель із заголовком та лікаркою -->
+            <div class="facts_panel reveal">
+                <span class="facts_bubble facts_bubble_1" aria-hidden="true"></span>
+                <span class="facts_bubble facts_bubble_2" aria-hidden="true"></span>
+
+                <div class="facts_panel_text">
+                    <span class="facts_eyebrow">У цифрах</span>
+                    <h2 class="facts_title" id="factsTitle">Факти<br>про нас</h2>
+                </div>
+
+                <!-- Ілюстрація лікарки: покладіть файл у imgindex/ -->
+                <img src="imgindex/facts-doctor.png" alt="" class="facts_doctor" aria-hidden="true"
+                     onerror="this.remove()">
+            </div>
+
+            <!-- Статистика -->
+            <ul class="facts_grid">
+                <li class="fact reveal" style="--i: 1">
+                    <span class="fact_icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M22 8c0-2.3-.8-4.3-2-6"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/><path d="M4 2C2.8 3.7 2 5.7 2 8"/></svg>
+                    </span>
+                    <div>
+                        <span class="fact_num" data-value="3000" data-suffix="+">3000+</span>
+                        <p class="fact_label">викликів (за добу)</p>
+                    </div>
+                </li>
+
+                <li class="fact reveal" style="--i: 2">
+                    <span class="fact_icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M10 10H6"/><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14"/><path d="M8 8v4"/><path d="M9 18h6"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                    </span>
+                    <div>
+                        <span class="fact_num" data-value="200" data-suffix="+">200+</span>
+                        <p class="fact_label">авто у парку</p>
+                    </div>
+                </li>
+
+                <li class="fact reveal" style="--i: 3">
+                    <span class="fact_icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg>
+                    </span>
+                    <div>
+                        <span class="fact_num" data-value="2500" data-suffix="+">2500+</span>
+                        <p class="fact_label">консультацій по телефону (за добу)</p>
+                    </div>
+                </li>
+
+                <li class="fact reveal" style="--i: 4">
+                    <span class="fact_icon">
+                        <svg class="icon" viewBox="0 0 24 24"><polyline points="16 2 16 8 22 8"/><line x1="22" x2="16" y1="2" y2="8"/><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </span>
+                    <div>
+                        <span class="fact_num" data-value="6000" data-suffix="+">6000+</span>
+                        <p class="fact_label">дзвінків (за добу)</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============ ІСТОРІЯ ============ -->
+    <section class="history" id="history" aria-labelledby="historyTitle">
+        <div class="history_inner">
+
+            <div class="history_text">
+                <span class="history_eyebrow reveal" style="--i: 0">Наш шлях</span>
+                <h2 class="history_title reveal" style="--i: 1" id="historyTitle">Історія</h2>
+
+                <!-- Тимчасовий текст — замініть на справжню історію Центру -->
+                <p class="history_desc reveal" style="--i: 2">
+                    Служба екстреної медичної допомоги Одещини пройшла довгий шлях — від перших
+                    карет швидкої допомоги на кінній тязі до сучасного центру, що щодоби приймає
+                    тисячі викликів. Покоління лікарів, фельдшерів і водіїв створювали традиції,
+                    на яких тримається наша робота сьогодні.
+                </p>
+
+                <div class="reveal" style="--i: 3">
+                    <a href="organization/Historyy/history.html" class="history_btn">
+                        Детальніше
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="history_media reveal_fade">
+                <span class="history_glow" aria-hidden="true"></span>
+                <img src="imgindex/home_history.png"
+                     alt="Архівні фотографії: карета швидкої допомоги, працівники станції та перевезення пацієнта на ношах"
+                     class="history_img" loading="lazy">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ НОВИНИ ============ -->
+    <section class="news" id="news" aria-labelledby="newsTitle">
+        <div class="news_inner">
+
+            <div class="news_head">
+                <div class="reveal">
+                    <span class="news_eyebrow">Події та оновлення</span>
+                    <h2 class="news_title" id="newsTitle">Наші новини</h2>
+                </div>
+                <div class="reveal" style="--i: 1">
+                    <a href="news/News/news.html" class="history_btn news_all_btn">
+                        До новин
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="news_list">
+
+                <div class="news_cell reveal" style="--i: 1">
+                <article class="news_card">
+                    <a href="news/Articles/pridbano-30-avtomobiliv-tipu-v-ta-10-avtomobiliv-tipu-s.html" class="news_media" tabindex="-1" aria-hidden="true">
+                        <img src="imgindex/news-1.jpg" alt="" loading="lazy"
+                             onerror="this.parentElement.classList.add('no_img'); this.remove()">
+                    </a>
+                    <div class="news_body">
+                        <div class="news_meta">
+                            <span class="news_meta_item">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+                                <time datetime="2021-12-13">13 грудня 2021</time>
+                            </span>
+                            <span class="news_meta_item" aria-label="Переглядів: 470">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                                470
+                            </span>
+                        </div>
+                        <h3 class="news_card_title">
+                            <a href="news/Articles/pridbano-30-avtomobiliv-tipu-v-ta-10-avtomobiliv-tipu-s.html">Придбано 30 автомобілів типу «B» та 10 автомобілів типу «C»</a>
+                        </h3>
+                        <p class="news_excerpt">
+                            У грудні 2021 – січні 2022 року для оснащення відокремлених підрозділів придбано
+                            30 автомобілів типу «В» та 10 автомобілів типу «С». Кузов виготовлено з використанням
+                            новітньої віброізоляції, шумоізоляції та теплоізоляції, а стінки та стеля медичного
+                            салону обладнано панелями з гладкою поверхнею, що не вбирає запахи та стійка до впливу
+                            дезінфекційних засобів.
+                        </p>
+                        <a href="news/Articles/pridbano-30-avtomobiliv-tipu-v-ta-10-avtomobiliv-tipu-s.html" class="news_more">
+                            Детальніше
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+                </div>
+
+                <div class="news_cell reveal" style="--i: 2">
+                <article class="news_card">
+                    <a href="news/Articles/novi-punkti-bazuvannya-brigad-medichnoyi-dopomogi.html" class="news_media" tabindex="-1" aria-hidden="true">
+                        <img src="imgindex/news-2.jpg" alt="" loading="lazy"
+                             onerror="this.parentElement.classList.add('no_img'); this.remove()">
+                    </a>
+                    <div class="news_body">
+                        <div class="news_meta">
+                            <span class="news_meta_item">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+                                <time datetime="2021-12-08">8 грудня 2021</time>
+                            </span>
+                            <span class="news_meta_item" aria-label="Переглядів: 427">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                                427
+                            </span>
+                        </div>
+                        <h3 class="news_card_title">
+                            <a href="news/Articles/novi-punkti-bazuvannya-brigad-medichnoyi-dopomogi.html">Нові пункти базування бригад медичної допомоги</a>
+                        </h3>
+                        <p class="news_excerpt">
+                            З липня 2020 року по грудень 2021 року в Одеській області відкрито дев’ять пунктів
+                            базування бригад екстреної (швидкої) медичної допомоги, що дає змогу прискорити час
+                            прибуття автомобіля екстреної (швидкої) медичної допомоги до хворого.
+                        </p>
+                        <a href="news/Articles/novi-punkti-bazuvannya-brigad-medichnoyi-dopomogi.html" class="news_more">
+                            Детальніше
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+                </div>
+
+                <div class="news_cell reveal" style="--i: 3">
+                <article class="news_card">
+                    <a href="news/Articles/yedina-operativnu-dispetcherska-sluzhba-dlya-prijomu-zvernen.html" class="news_media" tabindex="-1" aria-hidden="true">
+                        <img src="imgindex/news-3.jpg" alt="" loading="lazy"
+                             onerror="this.parentElement.classList.add('no_img'); this.remove()">
+                    </a>
+                    <div class="news_body">
+                        <div class="news_meta">
+                            <span class="news_meta_item">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+                                <time datetime="2018-04-13">13 квітня 2018</time>
+                            </span>
+                            <span class="news_meta_item" aria-label="Переглядів: 690">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                                690
+                            </span>
+                        </div>
+                        <h3 class="news_card_title">
+                            <a href="news/Articles/yedina-operativnu-dispetcherska-sluzhba-dlya-prijomu-zvernen.html">Єдина оперативна диспетчерська служба для прийому звернень громадян</a>
+                        </h3>
+                        <p class="news_excerpt">
+                            У березні 2018 року було відкрито Єдину оперативну диспетчерську службу для прийому
+                            звернень громадян про необхідність надання екстреної медичної допомоги за єдиним
+                            телефонним номером 103. Впродовж 2020 року службою було прийнято 891 031 звернення,
+                            оформлено 437 894 заявки для надання медичної допомоги.
+                        </p>
+                        <a href="news/Articles/yedina-operativnu-dispetcherska-sluzhba-dlya-prijomu-zvernen.html" class="news_more">
+                            Детальніше
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ КЕРІВНИЦТВО ============ -->
+    <section class="team" id="team" aria-labelledby="teamTitle">
+        <div class="team_head">
+            <div class="reveal">
+                <span class="team_eyebrow">Організація</span>
+                <h2 class="team_title" id="teamTitle">Керівництво</h2>
+            </div>
+
+            <div class="team_nav reveal" style="--i: 1">
+                <button type="button" class="team_arrow" id="teamPrev" aria-label="Попередні" disabled>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                </button>
+                <button type="button" class="team_arrow" id="teamNext" aria-label="Наступні">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Стрічка карток: на телефоні гортається пальцем, на ПК — стрілками, колесом або трекпадом -->
+        <ul class="team_track" id="teamTrack">
+            <li class="team_card">
+                <div class="team_photo">
+                    <img src="imgindex/team-1.jpg" alt="Кіяшко Ігор Анатолійович" loading="lazy" onerror="this.remove()">
+                </div>
+                <div class="team_info">
+                    <h3 class="team_name">Кіяшко Ігор Анатолійович</h3>
+                    <p class="team_role">Генеральний директор</p>
+                </div>
+            </li>
+
+            <li class="team_card">
+                <div class="team_photo">
+                    <img src="imgindex/team-2.jpg" alt="Кіка Едуард Володимирович" loading="lazy" onerror="this.remove()">
+                </div>
+                <div class="team_info">
+                    <h3 class="team_name">Кіка Едуард Володимирович</h3>
+                    <p class="team_role">Медичний директор</p>
+                </div>
+            </li>
+
+            <li class="team_card">
+                <div class="team_photo">
+                    <img src="imgindex/team-3.jpg" alt="Кучма Ганна Валентинівна" loading="lazy" onerror="this.remove()">
+                </div>
+                <div class="team_info">
+                    <h3 class="team_name">Кучма Ганна Валентинівна</h3>
+                    <p class="team_role">Заступник генерального директора з економічних питань</p>
+                </div>
+            </li>
+
+            <li class="team_card">
+                <div class="team_photo">
+                    <img src="imgindex/team-4.jpg" alt="Василевський Дмитро Миколайович" loading="lazy" onerror="this.remove()">
+                </div>
+                <div class="team_info">
+                    <h3 class="team_name">Василевський Дмитро Миколайович</h3>
+                    <p class="team_role">Заступник генерального директора з технічних питань</p>
+                </div>
+            </li>
+
+            <!-- ПЕРЕВІРТЕ: на скріншоті ім'я та посада обрізані -->
+            <li class="team_card">
+                <div class="team_photo">
+                    <img src="imgindex/team-5.jpg" alt="Фролов Кирило Владиславович" loading="lazy" onerror="this.remove()">
+                </div>
+                <div class="team_info">
+                    <h3 class="team_name">Фролов Кирило Владиславович</h3>
+                    <p class="team_role">Головний фельдшер з медицини невідкладних станів</p>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Індикатор прокрутки -->
+        <div class="team_progress" aria-hidden="true">
+            <span class="team_progress_bar" id="teamProgress"></span>
+        </div>
+    </section>
+
+    <!-- ============ ЗОНИ ПОКРИТТЯ ============ -->
+    <section class="zones" aria-labelledby="zonesTitle">
+        <div class="zones_inner">
+
+            <div class="zones_side">
+                <div class="reveal">
+                    <span class="zones_eyebrow">Карта</span>
+                    <h2 class="zones_title" id="zonesTitle">Зони покриття</h2>
+                    <p class="zones_lead">Служби екстреної медичної допомоги в Одеській області</p>
+                </div>
+
+                <p class="zones_label reveal" style="--i: 1">Межі зон обслуговування станцій Е(Ш)МД:</p>
+
+                <!-- Пункти списку створюються з zones.js; перший — «Вся зона покриття» -->
+                <ul class="zones_list reveal" style="--i: 2" id="zoneList">
+                    <li>
+                        <button type="button" class="zone_btn is_active" data-zone="all" aria-pressed="true">
+                            <span class="zone_dot" style="--c: var(--red)"></span>
+                            <span class="zone_name">Вся зона покриття</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="zones_map_wrap reveal_fade">
+                <div class="zones_map" id="zonesMap" role="region" aria-label="Карта зон покриття"></div>
+
+                <!-- Плашка з обраною зоною -->
+                <div class="zones_info" id="zonesInfo" aria-live="polite">
+                    <span class="zone_dot" id="zonesInfoDot" style="--c: var(--red)"></span>
+                    <div>
+                        <p class="zones_info_label">Обрано</p>
+                        <p class="zones_info_name" id="zonesInfoName">Вся зона покриття</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+
+        <!-- Смуга екстреного виклику -->
+        <div class="footer_cta_wrap">
+            <div class="footer_cta">
+                <div class="footer_cta_text">
+                    <p class="footer_cta_label">Потрібна невідкладна допомога?</p>
+                    <p class="footer_cta_title">Телефонуйте <span>103</span> — цілодобово та безкоштовно</p>
+                </div>
+                <a href="tel:103" class="footer_cta_btn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+                    Зателефонувати 103
+                </a>
+            </div>
+        </div>
+
+        <div class="footer_inner">
+            <div class="footer_grid">
+
+                <!-- Про організацію + контакти -->
+                <div class="footer_brand">
+                    <a href="index.html" class="footer_logo_link" aria-label="На головну">
+                        <img src="imgindex/logo.png" alt="Логотип центру" class="footer_logo">
+                        <span class="footer_name">
+                            КНП «Одеський обласний центр екстреної медичної допомоги і медицини катастроф»
+                            <small>Одеської обласної ради</small>
+                        </span>
+                    </a>
+
+                    <ul class="footer_contacts">
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Телефон</p>
+                                <a href="tel:+380487263535">(048) 726-35-35</a>
+                                <a href="tel:0800508990">0 800 508 990</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">E-mail</p>
+                                <a href="mailto:med-katastrof@ukr.net">med-katastrof@ukr.net</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Адреса</p>
+                                <p class="footer_text">65026, м. Одеса, вул. Гаванна, 1</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="footer_social">
+                        <span class="footer_label">Слідкуйте за нами</span>
+                        <!-- Вставте посилання на сторінку Facebook -->
+                        <a href="https://www.facebook.com/EMD103Odessa" class="footer_social_btn" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Про нас -->
+                <nav class="footer_col" aria-label="Про нас">
+                    <p class="footer_col_title">Про нас</p>
+                    <ul class="footer_links">
+                        <li><a href="#team">Керівництво</a></li>
+                        <li><a href="organization/Historyy/history.html">Історія</a></li>
+                        <li><a href="news/News/news.html">Новини</a></li>
+                        <li><a href="procurement/Rationale/rationale.html">Державні закупівлі</a></li>
+                        <li><a href="regulations/Regulations/regulations.html">Нормативні акти</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Послуги + банер -->
+                <div class="footer_col">
+                    <nav aria-label="Послуги">
+                        <p class="footer_col_title">Послуги</p>
+                        <ul class="footer_links">
+                            <li><a href="#services">Послуги</a></li>
+                            <li><a href="training%20department/Medical%20Training%20(Level%20I)/medicaltraining1.html">Учбово-тренувальний відділ</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Банер програми ментального здоров'я «Ти як?» -->
+                    <a href="https://howareu.com" class="footer_banner" target="_blank" rel="noopener">
+                        <span class="footer_banner_text">Піклуватися про ментальне здоров’я із</span>
+                        <span class="footer_banner_title">Ти як?</span>
+                        <span class="footer_banner_link">
+                            howareu.com
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Нижня смуга -->
+        <div class="footer_bottom">
+            <div class="footer_bottom_inner">
+                <p>© med-katastrof 2001–<span id="footerYear">2025</span></p>
+                <p class="footer_bottom_center">Одеський обласний центр екстреної медичної допомоги і медицини катастроф</p>
+                <button type="button" class="footer_top_btn" id="toTop">
+                    Нагору
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ МОДАЛКА КОНТАКТІВ ============ -->
+    <div class="modal" id="contactsModal" role="dialog" aria-modal="true" aria-labelledby="contactsTitle" aria-hidden="true">
+        <div class="modal_overlay" data-close-modal></div>
+
+        <div class="modal_box">
+            <button type="button" class="modal_close" data-close-modal aria-label="Закрити">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            <h2 class="modal_title" id="contactsTitle">Контакти</h2>
+
+            <a href="tel:103" class="emergency_card">
+                <span class="emergency_icon">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>
+                </span>
+                <span>
+                    <span class="emergency_label">Екстрена лінія</span>
+                    <span class="emergency_number">103</span>
+                </span>
+            </a>
+
+            <ul class="contacts_list">
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div>
+                        <p class="contacts_label">Гарячі лінії</p>
+                        <a href="tel:+380487263535" class="contacts_link">(048) 726-35-35</a>
+                        <a href="tel:0800508990" class="contacts_link">0 800 508 990</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <div>
+                        <p class="contacts_label">Електронна пошта</p>
+                        <a href="mailto:med-katastrof@ukr.net" class="contacts_link">med-katastrof@ukr.net</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <p class="contacts_label">Адреса</p>
+                        <p class="contacts_text">м. Одеса, вул. Гаванна, 1</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============ МОБІЛЬНЕ МЕНЮ ============ -->
+    <div class="mobile_menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile_overlay" data-close-mobile></div>
+
+        <aside class="mobile_panel">
+            <div class="mobile_head">
+                <span class="mobile_title">Меню</span>
+                <button type="button" class="modal_close mobile_close" data-close-mobile aria-label="Закрити меню">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Пункти генеруються з десктопного меню в script.js -->
+            <nav class="mobile_nav" aria-label="Мобільне меню">
+                <ul class="mobile_list" id="mobileList"></ul>
+            </nav>
+
+            <a href="tel:103" class="mobile_emergency">Екстрена лінія 103</a>
+        </aside>
+    </div>
+
+</body>
+</html>

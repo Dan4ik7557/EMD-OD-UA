@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безперервний професійний розвиток — Центр ЕМД та МК Одеської області</title>
+    <meta name="description" content="Заходи безперервного професійного розвитку (БПР) медичних працівників КНП «ООЦЕМД і МК» ООР: картки тренінгів, програми, лектори та бали БПР.">
+    <link rel="stylesheet" href="professionaldevelopment.css">
+    <script src="professionaldevelopment.js" defer></script>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header_wrapper">
+        <div class="menu_wrapper">
+
+            <!-- Логотип -->
+            <a href="../../index.html" class="logo_link" aria-label="На головну">
+                <img src="../../imgindex/logo.png"
+                     alt="Центр екстреної медичної допомоги та медицини катастроф Одеської області"
+                     class="logo_img">
+            </a>
+
+            <!-- Десктопне меню -->
+            <nav class="menu_nav_wrapper" aria-label="Головне меню">
+                <ul class="nav_list">
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Послуги
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../../services/Emergency%20medical%20services/emergencymedicalservices.html">Екстрена швидка медична допомога</a></li>
+                                <li><a href="../../services/Emergency%20medical%20transport/emergencymedicaltransport.html">Екстрене медичне перевезення</a></li>
+                                <li><a href="../../services/Emergency%20consultative%20care/emergencyconsultativecare.html">Надання екстреної консультативної медичної допомоги</a></li>
+                                <li><a href="../../services/Calls%20for%20hearing%20impaired/callsforhearingimpaired.html">Прийом викликів від населення з вадами слуху та мови</a></li>
+                                <li><a href="../../services/Medicines%20availability/medicinesavailability.html">Наявність лікарських засобів</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Організація
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="#">Про нас</a></li>
+                                <li><a href="../../organization/History/history.html">Історія</a></li>
+                                <li><a href="../../organization/Structural%20units/structuralunits.html">Структурні підрозділи</a></li>
+                                <li><a href="../../index.html#team">Керівництво</a></li>
+                                <li><a href="../../organization/Activity/activity.html">Діяльність</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown is_current">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Учбово-тренувальний відділ
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../Medical%20training%20I/medicaltraining1.html">Медична підготовка (I рівень)</a></li>
+                                <li><a href="../Medical%20training%20II/medicaltraining2.html">Медична підготовка (II рівень)</a></li>
+                                <li><a href="../Medical%20training%20III/medicaltraining3.html">Медична підготовка (III рівень)</a></li>
+                                <li><a href="professionaldevelopment.html" aria-current="page">Безперервний професійний розвиток</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item"><a href="../../index.html#news" class="nav_link">Новини</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Фотогалерея</a></li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Державні закупівлі
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <!-- Тимчасові пункти — замініть на підрозділи з оригінального сайту -->
+                                <li><a href="#">Річний план закупівель</a></li>
+                                <li><a href="#">Оголошення про закупівлі</a></li>
+                                <li><a href="#">Обґрунтування технічних та якісних характеристик</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item"><a href="#" class="nav_link">Нормативні акти</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <!-- Праворуч: сплит-кнопка + бургер -->
+            <div class="header_actions">
+                <div class="split_btn">
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Телефони">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </button>
+                    <span class="split_btn_divider" aria-hidden="true"></span>
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Електронна пошта">
+                        <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </button>
+                </div>
+
+                <button type="button" class="burger_btn" id="burgerBtn" aria-label="Відкрити меню">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="sp">
+
+        <!-- ============ ЗАГОЛОВОК СТОРІНКИ ============ -->
+        <section class="sp_hero bp_hero">
+            <div class="sp_inner">
+                <nav class="sp_crumbs reveal" aria-label="Навігація">
+                    <a href="../../index.html">Головна</a>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <span>Учбово-тренувальний відділ</span>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <span aria-current="page">Безперервний професійний розвиток</span>
+                </nav>
+
+                <span class="sp_eyebrow bp_eyebrow reveal" style="--i: 1">БПР медичних та фармацевтичних працівників</span>
+                <h1 class="sp_title reveal" style="--i: 1">Безперервний професійний розвиток</h1>
+                <p class="bp_lead reveal" style="--i: 2">Картки заходів: мета, програма по днях, лектори та кількість балів БПР.</p>
+
+                <!-- Швидкий перехід до заходів -->
+                <ul class="bp_jumps reveal" style="--i: 3">
+                    <li>
+                        <a href="#bpr-pology" class="bp_jump">
+                            <span class="bp_jump_num">1</span>
+                            <span class="bp_jump_text"><b>Надання допомоги при пологах на догоспітальному етапі</b><small>18.12.2023 — 19.12.2023 · 20 балів БПР</small></span>
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#bpr-reanimaciya" class="bp_jump">
+                            <span class="bp_jump_num">2</span>
+                            <span class="bp_jump_text"><b>Надання допомоги при раптовій зупинці кровообігу у дорослих на догоспітальному етапі. Розширені реанімаційні заходи</b><small>25.12.2023 — 26.12.2023 · 20 балів БПР</small></span>
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ ЗАХІД 1 ============ -->
+        <section class="bp_section" id="bpr-pology" aria-labelledby="bpr-pology-title">
+            <div class="sp_inner">
+                <article class="bp_event">
+
+                    <!-- Шапка картки -->
+                    <header class="bp_head reveal">
+                        <div class="bp_head_text">
+                            <span class="bp_kicker">Картка заходу № 1 · Тренінг</span>
+                            <h2 class="bp_title" id="bpr-pology-title">Надання допомоги при пологах на догоспітальному етапі</h2>
+                            <ul class="bp_facts">
+                                <li><svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>18.12.2023 — 19.12.2023</li>
+                                <li><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Валіховський провулок, 10, 1 поверх, навчальна кімната</li>
+                            </ul>
+                        </div>
+                        <ul class="bp_badges">
+                            <li class="bp_badge_main"><b>20</b><span>балів БПР</span></li>
+                            <li><b>20</b><span>учасників</span></li>
+                        </ul>
+                    </header>
+
+                    <!-- Основна інформація -->
+                    <div class="bp_grid">
+                        <div class="bp_box reveal">
+                            <h3 class="bp_h3">Мета навчання</h3>
+                            <p class="bp_text">Підвищити фаховий рівень знань працівників медицини невідкладних станів у питаннях ведення і надання допомоги при пологах на догоспітальному етапі.</p>
+                            <h3 class="bp_h3">Методи навчання</h3>
+                            <ul class="bp_list"><li>За джерелом знань: словесні, наочні й практичні методи</li><li>За логікою навчального процесу: індуктивні та дедуктивні, аналітичні й синтетичні методи</li></ul>
+                        </div>
+
+                        <dl class="bp_box bp_info reveal" style="--i: 1">
+                            <div><dt>Провайдер</dt><dd>КНП «ООЦЕМД і МК» ООР</dd></div>
+                            <div><dt>Співорганізатори</dt><dd>Петрових Сергій Іванович</dd></div>
+                            <div><dt>Цільова аудиторія</dt><dd>Медицина невідкладних станів</dd></div>
+                            <div><dt>Вид заходу</dt><dd>Тренінг</dd></div>
+                            <div><dt>Технічна підтримка</dt><dd>Ні</dd></div>
+                            <div><dt>Код заходу БПР</dt><dd class="bp_muted">Вноситься після присвоєння Адміністратором</dd></div>
+                        </dl>
+                    </div>
+
+                    <!-- Лектори -->
+                    <div class="bp_box bp_trainers_box reveal">
+                        <h3 class="bp_h3">Лектор / тренер</h3>
+                        <ul class="bp_trainers">
+                            <li class="bp_trainer">
+                                <span class="bp_avatar" aria-hidden="true">ПС</span>
+                                <div><b>Петрових Сергій Іванович</b><span>Завідувач центру екстреної акушерсько-гінекологічної медичної допомоги КНП ООКЛ, лікар вищої категорії.</span></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Програма -->
+                    <div class="bp_program">
+                        <h3 class="bp_h3 bp_h3_big">Програма заходу</h3>
+                        <div class="bp_days">
+                        <div class="bp_day">
+                            <p class="bp_day_head"><b>День 1</b><span>18.12.2023</span></p>
+                            <ol class="bp_slots">
+                                <li class="bp_slot">
+                                    <span class="bp_time">09:00–10:00</span>
+                                    <p class="bp_topic">Вітання. Вступ. Поняття про пологи. Розпізнавання початку пологів. Фізіологія та періоди.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>1 год</span><span class="bp_h is_tot"><small>Всього</small>1 год</span></div>
+                                </li>
+                                <li class="bp_slot is_break">
+                                    <span class="bp_time">10:00–10:10</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg></span>Кава-брейк</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>10 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">10:10–11:30</span>
+                                    <p class="bp_topic">Ведення нормальних пологів на догоспітальному етапі.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>40 хв</span><span class="bp_h is_pr"><small>Практика</small>40 хв</span><span class="bp_h is_tot"><small>Всього</small>1 год 20 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">11:30–13:00</span>
+                                    <p class="bp_topic">Пологи з ускладненнями (дистоція плечиків, обвиття та випадіння пуповини, тазове передлежання плоду, післяпологова кровотеча). Тактика надання допомоги на догоспітальному етапі.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>50 хв</span><span class="bp_h is_pr"><small>Практика</small>40 хв</span><span class="bp_h is_tot"><small>Всього</small>1 год 30 хв</span></div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="bp_day">
+                            <p class="bp_day_head"><b>День 2</b><span>19.12.2023</span></p>
+                            <ol class="bp_slots">
+                                <li class="bp_slot">
+                                    <span class="bp_time">09:00–10:00</span>
+                                    <p class="bp_topic">Догляд за новонародженою дитиною. Поняття про тепловий ланцюжок. Оцінка за шкалою Апгар.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>1 год</span><span class="bp_h is_tot"><small>Всього</small>1 год</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">10:00–11:30</span>
+                                    <p class="bp_topic">Швидке виявлення потреби новонародженої дитини у реанімаційних заходах. Алгоритм неонатальної реанімації.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>30 хв</span><span class="bp_h is_pr"><small>Практика</small>1 год</span><span class="bp_h is_tot"><small>Всього</small>1 год 30 хв</span></div>
+                                </li>
+                                <li class="bp_slot is_break">
+                                    <span class="bp_time">11:30–11:40</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg></span>Кава-брейк</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>10 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">11:40–12:30</span>
+                                    <p class="bp_topic">Особливості транспортування вагітних, породіль та новонароджених до ЗОЗ.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>50 хв</span><span class="bp_h is_tot"><small>Всього</small>50 хв</span></div>
+                                </li>
+                                <li class="bp_slot is_test">
+                                    <span class="bp_time">12:30–13:00</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Заключне тестування</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>30 хв</span></div>
+                                </li>
+                            </ol>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Вимоги та оцінювання -->
+                    <div class="bp_grid bp_grid_even">
+                        <div class="bp_box reveal">
+                            <h3 class="bp_h3">Вимоги до учасників</h3>
+                            <p class="bp_text">Дійсний сертифікат лікаря-спеціаліста або посвідчення на категорію згідно із заявленим фахом.</p>
+                        </div>
+                        <div class="bp_box reveal" style="--i: 1">
+                            <h3 class="bp_h3">Оцінювання знань</h3>
+                            <p class="bp_text">10 тестових завдань. Для успішного проходження тестування слухач повинен правильно відповісти понад 75 % питань (8 відповідей). Зараховане тестування позначається як 1 (виконав), незараховане — 0 (не виконав).</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- ============ ЗАХІД 2 ============ -->
+        <section class="bp_section" id="bpr-reanimaciya" aria-labelledby="bpr-reanimaciya-title">
+            <div class="sp_inner">
+                <article class="bp_event">
+
+                    <!-- Шапка картки -->
+                    <header class="bp_head reveal">
+                        <div class="bp_head_text">
+                            <span class="bp_kicker">Картка заходу № 2 · Тренінг</span>
+                            <h2 class="bp_title" id="bpr-reanimaciya-title">Надання допомоги при раптовій зупинці кровообігу у дорослих на догоспітальному етапі. Розширені реанімаційні заходи</h2>
+                            <ul class="bp_facts">
+                                <li><svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>25.12.2023 — 26.12.2023</li>
+                                <li><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Валіховський провулок, 10, 1 поверх, навчальна кімната</li>
+                            </ul>
+                        </div>
+                        <ul class="bp_badges">
+                            <li class="bp_badge_main"><b>20</b><span>балів БПР</span></li>
+                            <li><b>20</b><span>учасників</span></li>
+                        </ul>
+                    </header>
+
+                    <!-- Основна інформація -->
+                    <div class="bp_grid">
+                        <div class="bp_box reveal">
+                            <h3 class="bp_h3">Мета навчання</h3>
+                            <p class="bp_text">Підвищити фаховий рівень знань працівників медицини невідкладних станів у питаннях ведення і надання допомоги дорослим пацієнтам з раптовою зупинкою кровообігу на догоспітальному етапі. Відпрацювати навички забезпечення прохідності дихальних шляхів та алгоритми роботи з дефібрилятором, а також навчитися швидко визначати зворотні причини раптової зупинки кровообігу та впливати на них.</p>
+                            <h3 class="bp_h3">Методи навчання</h3>
+                            <ul class="bp_list"><li>За джерелом знань: словесні, наочні й практичні методи</li><li>За логікою навчального процесу: індуктивні та дедуктивні, аналітичні й синтетичні методи</li></ul>
+                        </div>
+
+                        <dl class="bp_box bp_info reveal" style="--i: 1">
+                            <div><dt>Провайдер</dt><dd>КНП «ООЦЕМД і МК» ООР</dd></div>
+                            <div><dt>Співорганізатори</dt><dd>Відсутні</dd></div>
+                            <div><dt>Цільова аудиторія</dt><dd>Медицина невідкладних станів</dd></div>
+                            <div><dt>Вид заходу</dt><dd>Тренінг</dd></div>
+                            <div><dt>Технічна підтримка</dt><dd>Ні</dd></div>
+                            <div><dt>Код заходу БПР</dt><dd class="bp_muted">Вноситься після присвоєння Адміністратором</dd></div>
+                        </dl>
+                    </div>
+
+                    <!-- Лектори -->
+                    <div class="bp_box bp_trainers_box reveal">
+                        <h3 class="bp_h3">Лектори / тренери</h3>
+                        <ul class="bp_trainers">
+                            <li class="bp_trainer">
+                                <span class="bp_avatar" aria-hidden="true">МО</span>
+                                <div><b>Місюра Олександра Сергіївна</b><span>Лікар МНС, інструктор з догоспітальної допомоги, кандидат в інструктори ALS від ERC.</span></div>
+                            </li>
+                            <li class="bp_trainer">
+                                <span class="bp_avatar" aria-hidden="true">ЯМ</span>
+                                <div><b>Яковишин Марія Володимирівна</b><span>Лікар МНС, інструктор з догоспітальної допомоги, кандидат в інструктори ALS від ERC.</span></div>
+                            </li>
+                            <li class="bp_trainer">
+                                <span class="bp_avatar" aria-hidden="true">ПД</span>
+                                <div><b>Панов Дмитро Вікторович</b><span>Лікар МНС, інструктор з догоспітальної допомоги.</span></div>
+                            </li>
+                            <li class="bp_trainer">
+                                <span class="bp_avatar" aria-hidden="true">ПВ</span>
+                                <div><b>Пожевʼяк Владислав Юрійович</b><span>Лікар МНС, інструктор з догоспітальної допомоги.</span></div>
+                            </li>
+                            <li class="bp_trainer">
+                                <span class="bp_avatar" aria-hidden="true">ГЮ</span>
+                                <div><b>Галущенко Юлія Олегівна</b><span>Лікар МНС.</span></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Програма -->
+                    <div class="bp_program">
+                        <h3 class="bp_h3 bp_h3_big">Програма заходу</h3>
+                        <div class="bp_days">
+                        <div class="bp_day">
+                            <p class="bp_day_head"><b>День 1</b><span>25.12.2023</span></p>
+                            <ol class="bp_slots">
+                                <li class="bp_slot">
+                                    <span class="bp_time">09:00–09:15</span>
+                                    <p class="bp_topic">Вітання. Вступне слово.</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Всього</small>15 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">09:15–10:15</span>
+                                    <p class="bp_topic">Огляд місця події, обстеження постраждалого. Причини раптової зупинки кровообігу у дорослих.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>30 хв</span><span class="bp_h is_pr"><small>Практика</small>30 хв</span><span class="bp_h is_tot"><small>Всього</small>60 хв</span></div>
+                                </li>
+                                <li class="bp_slot is_break">
+                                    <span class="bp_time">10:15–10:25</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg></span>Кава-брейк</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>10 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">10:25–12:00</span>
+                                    <p class="bp_topic">Основні принципи проведення базової реанімації у дорослих. Алгоритм проведення базової реанімації за наявності автоматичного зовнішнього дефібрилятора. Перша частина.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>60 хв</span><span class="bp_h is_pr"><small>Практика</small>35 хв</span><span class="bp_h is_tot"><small>Всього</small>95 хв</span></div>
+                                </li>
+                                <li class="bp_slot is_break">
+                                    <span class="bp_time">12:00–12:30</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg></span>Обідня перерва</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>30 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">12:30–14:30</span>
+                                    <p class="bp_topic">Основні принципи проведення базової реанімації у дорослих. Алгоритм проведення базової реанімації за наявності автоматичного зовнішнього дефібрилятора. Продовження.</p>
+                                    <div class="bp_hours"><span class="bp_h is_pr"><small>Практика</small>120 хв</span><span class="bp_h is_tot"><small>Всього</small>120 хв</span></div>
+                                </li>
+                                <li class="bp_slot is_break">
+                                    <span class="bp_time">14:30–14:40</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg></span>Кава-брейк</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>10 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">14:40–15:20</span>
+                                    <p class="bp_topic">Стороннє тіло в дихальних шляхах.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>20 хв</span><span class="bp_h is_pr"><small>Практика</small>20 хв</span><span class="bp_h is_tot"><small>Всього</small>40 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">15:20–17:00</span>
+                                    <p class="bp_topic">Забезпечення прохідності дихальних шляхів. Надглоткові, надгортанні методи. Інтубація трахеї.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>40 хв</span><span class="bp_h is_pr"><small>Практика</small>60 хв</span><span class="bp_h is_tot"><small>Всього</small>100 хв</span></div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="bp_day">
+                            <p class="bp_day_head"><b>День 2</b><span>26.12.2023</span></p>
+                            <ol class="bp_slots">
+                                <li class="bp_slot">
+                                    <span class="bp_time">09:00–10:00</span>
+                                    <p class="bp_topic">Алгоритм розширених реанімаційних заходів. Дефібриляційні і недефібриляційні ритми.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>60 хв</span><span class="bp_h is_tot"><small>Всього</small>60 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">10:00–10:40</span>
+                                    <p class="bp_topic">Основні принципи роботи з ручним дефібрилятором. Правила безпеки.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>40 хв</span><span class="bp_h is_tot"><small>Всього</small>40 хв</span></div>
+                                </li>
+                                <li class="bp_slot is_break">
+                                    <span class="bp_time">10:40–10:50</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg></span>Кава-брейк</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>10 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">10:50–11:50</span>
+                                    <p class="bp_topic">Зворотні причини раптової зупинки кровообігу (4Т, 4Г).</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>60 хв</span><span class="bp_h is_tot"><small>Всього</small>60 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">11:50–12:30</span>
+                                    <p class="bp_topic">Післяреанімаційна підтримка.</p>
+                                    <div class="bp_hours"><span class="bp_h is_th"><small>Теорія</small>40 хв</span><span class="bp_h is_tot"><small>Всього</small>40 хв</span></div>
+                                </li>
+                                <li class="bp_slot is_break">
+                                    <span class="bp_time">12:30–13:00</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg></span>Обідня перерва</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>30 хв</span></div>
+                                </li>
+                                <li class="bp_slot">
+                                    <span class="bp_time">13:00–16:30</span>
+                                    <p class="bp_topic">Робота в симуляціях.</p>
+                                    <div class="bp_hours"><span class="bp_h is_pr"><small>Практика</small>210 хв</span><span class="bp_h is_tot"><small>Всього</small>210 хв</span></div>
+                                </li>
+                                <li class="bp_slot is_test">
+                                    <span class="bp_time">16:30–17:00</span>
+                                    <p class="bp_topic"><span class="bp_slot_ico" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Заключне тестування</p>
+                                    <div class="bp_hours"><span class="bp_h is_tot"><small>Тривалість</small>30 хв</span></div>
+                                </li>
+                            </ol>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Вимоги та оцінювання -->
+                    <div class="bp_grid bp_grid_even">
+                        <div class="bp_box reveal">
+                            <h3 class="bp_h3">Вимоги до учасників</h3>
+                            <p class="bp_text">Дійсний сертифікат лікаря-спеціаліста або посвідчення на категорію згідно із заявленим фахом.</p>
+                        </div>
+                        <div class="bp_box reveal" style="--i: 1">
+                            <h3 class="bp_h3">Оцінювання знань</h3>
+                            <p class="bp_text">10 тестових завдань. Для успішного проходження тестування слухач повинен правильно відповісти понад 75 % питань (8 відповідей). Зараховане тестування позначається як 1 (виконав), незараховане — 0 (не виконав).</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+
+        <!-- Смуга екстреного виклику -->
+        <div class="footer_cta_wrap">
+            <div class="footer_cta">
+                <div class="footer_cta_text">
+                    <p class="footer_cta_label">Потрібна невідкладна допомога?</p>
+                    <p class="footer_cta_title">Телефонуйте <span>103</span> — цілодобово та безкоштовно</p>
+                </div>
+                <a href="tel:103" class="footer_cta_btn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+                    Зателефонувати 103
+                </a>
+            </div>
+        </div>
+
+        <div class="footer_inner">
+            <div class="footer_grid">
+
+                <!-- Про організацію + контакти -->
+                <div class="footer_brand">
+                    <a href="../../index.html" class="footer_logo_link" aria-label="На головну">
+                        <img src="../../imgindex/logo.png" alt="Логотип центру" class="footer_logo">
+                        <span class="footer_name">
+                            КНП «Одеський обласний центр екстреної медичної допомоги і медицини катастроф»
+                            <small>Одеської обласної ради</small>
+                        </span>
+                    </a>
+
+                    <ul class="footer_contacts">
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Телефон</p>
+                                <a href="tel:+380487263535">(048) 726-35-35</a>
+                                <a href="tel:0800508990">0 800 508 990</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">E-mail</p>
+                                <a href="mailto:med-katastrof@ukr.net">med-katastrof@ukr.net</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Адреса</p>
+                                <p class="footer_text">65026, м. Одеса, вул. Гаванна, 1</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="footer_social">
+                        <span class="footer_label">Слідкуйте за нами</span>
+                        <!-- Вставте посилання на сторінку Facebook -->
+                        <a href="#" class="footer_social_btn" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Про нас -->
+                <nav class="footer_col" aria-label="Про нас">
+                    <p class="footer_col_title">Про нас</p>
+                    <ul class="footer_links">
+                        <li><a href="../../index.html#team">Керівництво</a></li>
+                        <li><a href="../../organization/History/history.html">Історія</a></li>
+                        <li><a href="../../index.html#news">Новини</a></li>
+                        <li><a href="#">Державні закупівлі</a></li>
+                        <li><a href="#">Нормативні акти</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Послуги + банер -->
+                <div class="footer_col">
+                    <nav aria-label="Послуги">
+                        <p class="footer_col_title">Послуги</p>
+                        <ul class="footer_links">
+                            <li><a href="../../index.html#services">Послуги</a></li>
+                            <li><a href="#">Учбово-тренувальний відділ</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Банер програми ментального здоров'я «Ти як?» -->
+                    <a href="https://howareu.com" class="footer_banner" target="_blank" rel="noopener">
+                        <span class="footer_banner_text">Піклуватися про ментальне здоров’я із</span>
+                        <span class="footer_banner_title">Ти як?</span>
+                        <span class="footer_banner_link">
+                            howareu.com
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Нижня смуга -->
+        <div class="footer_bottom">
+            <div class="footer_bottom_inner">
+                <p>© med-katastrof 2001–<span id="footerYear">2025</span></p>
+                <p class="footer_bottom_center">Одеський обласний центр екстреної медичної допомоги і медицини катастроф</p>
+                <button type="button" class="footer_top_btn" id="toTop">
+                    Нагору
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ МОДАЛКА КОНТАКТІВ ============ -->
+    <div class="modal" id="contactsModal" role="dialog" aria-modal="true" aria-labelledby="contactsTitle" aria-hidden="true">
+        <div class="modal_overlay" data-close-modal></div>
+
+        <div class="modal_box">
+            <button type="button" class="modal_close" data-close-modal aria-label="Закрити">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            <h2 class="modal_title" id="contactsTitle">Контакти</h2>
+
+            <a href="tel:103" class="emergency_card">
+                <span class="emergency_icon">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>
+                </span>
+                <span>
+                    <span class="emergency_label">Екстрена лінія</span>
+                    <span class="emergency_number">103</span>
+                </span>
+            </a>
+
+            <ul class="contacts_list">
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div>
+                        <p class="contacts_label">Гарячі лінії</p>
+                        <a href="tel:+380487263535" class="contacts_link">(048) 726-35-35</a>
+                        <a href="tel:0800508990" class="contacts_link">0 800 508 990</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <div>
+                        <p class="contacts_label">Електронна пошта</p>
+                        <a href="mailto:med-katastrof@ukr.net" class="contacts_link">med-katastrof@ukr.net</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <p class="contacts_label">Адреса</p>
+                        <p class="contacts_text">м. Одеса, вул. Гаванна, 1</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============ МОБІЛЬНЕ МЕНЮ ============ -->
+    <div class="mobile_menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile_overlay" data-close-mobile></div>
+
+        <aside class="mobile_panel">
+            <div class="mobile_head">
+                <span class="mobile_title">Меню</span>
+                <button type="button" class="modal_close mobile_close" data-close-mobile aria-label="Закрити меню">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Пункти генеруються з десктопного меню в script.js -->
+            <nav class="mobile_nav" aria-label="Мобільне меню">
+                <ul class="mobile_list" id="mobileList"></ul>
+            </nav>
+
+            <a href="tel:103" class="mobile_emergency">Екстрена лінія 103</a>
+        </aside>
+    </div>
+
+</body>
+</html>

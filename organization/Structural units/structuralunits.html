@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Структурні підрозділи — Центр ЕМД та МК Одеської області</title>
+    <meta name="description" content="90 структурних підрозділів КНП «ООЦЕМД і МК» ООР на карті: станції, підстанції та пункти постійного базування бригад швидкої допомоги Одеської області.">
+    <link rel="stylesheet" href="structuralunits.css">
+    <!-- Карта: Leaflet (безкоштовно, без API-ключа) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+    <!-- Кластери міток (кружки з числом) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js" defer></script>
+    <script src="structuralunits.js" defer></script>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header_wrapper">
+        <div class="menu_wrapper">
+
+            <!-- Логотип -->
+            <a href="../../index.html" class="logo_link" aria-label="На головну">
+                <img src="../../imgindex/logo.png"
+                     alt="Центр екстреної медичної допомоги та медицини катастроф Одеської області"
+                     class="logo_img">
+            </a>
+
+            <!-- Десктопне меню -->
+            <nav class="menu_nav_wrapper" aria-label="Головне меню">
+                <ul class="nav_list">
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Послуги
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../../services/Emergency%20medical%20services/emergencymedicalservices.html">Екстрена швидка медична допомога</a></li>
+                                <li><a href="../../services/Emergency%20medical%20transport/emergencymedicaltransport.html">Екстрене медичне перевезення</a></li>
+                                <li><a href="../../services/Emergency%20consultative%20care/emergencyconsultativecare.html">Надання екстреної консультативної медичної допомоги</a></li>
+                                <li><a href="../../services/Calls%20for%20hearing%20impaired/callsforhearingimpaired.html">Прийом викликів від населення з вадами слуху та мови</a></li>
+                                <li><a href="../../services/Medicines%20availability/medicinesavailability.html">Наявність лікарських засобів</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown is_current">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Організація
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="#">Про нас</a></li>
+                                <li><a href="../History/history.html">Історія</a></li>
+                                <li><a href="structuralunits.html" aria-current="page">Структурні підрозділи</a></li>
+                                <li><a href="../../index.html#team">Керівництво</a></li>
+                                <li><a href="#">Діяльність</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Учбово-тренувальний відділ
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="#">Медична підготовка (I рівень)</a></li>
+                                <li><a href="#">Медична підготовка (II рівень)</a></li>
+                                <li><a href="#">Медична підготовка (III рівень)</a></li>
+                                <li><a href="#">Безперервний професійний розвиток</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item"><a href="../../index.html#news" class="nav_link">Новини</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Фотогалерея</a></li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Державні закупівлі
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <!-- Тимчасові пункти — замініть на підрозділи з оригінального сайту -->
+                                <li><a href="#">Річний план закупівель</a></li>
+                                <li><a href="#">Оголошення про закупівлі</a></li>
+                                <li><a href="#">Обґрунтування технічних та якісних характеристик</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item"><a href="#" class="nav_link">Нормативні акти</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <!-- Праворуч: сплит-кнопка + бургер -->
+            <div class="header_actions">
+                <div class="split_btn">
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Телефони">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </button>
+                    <span class="split_btn_divider" aria-hidden="true"></span>
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Електронна пошта">
+                        <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </button>
+                </div>
+
+                <button type="button" class="burger_btn" id="burgerBtn" aria-label="Відкрити меню">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="sp">
+
+        <!-- ============ ЗАГОЛОВОК СТОРІНКИ ============ -->
+        <section class="sp_hero un_hero">
+            <div class="sp_inner">
+                <nav class="sp_crumbs reveal" aria-label="Навігація">
+                    <a href="../../index.html">Головна</a>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <span>Організація</span>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <span aria-current="page">Структурні підрозділи</span>
+                </nav>
+
+                <h1 class="sp_title reveal" style="--i: 1">Структурні підрозділи</h1>
+                <p class="un_lead reveal" style="--i: 2">
+                    Станції, підстанції та пункти постійного базування бригад екстреної (швидкої) медичної допомоги
+                    по всій Одеській області. Знайдіть найближчий підрозділ за назвою населеного пункту або вулицею.
+                </p>
+
+                <ul class="un_summary reveal" style="--i: 3">
+                    <li class="un_sum_total"><b>90</b><span>структурних підрозділів</span></li>
+                    <li><b>1</b><span>обласний центр</span></li>
+                    <li><b>9</b><span>станцій</span></li>
+                    <li><b>29</b><span>підстанцій</span></li>
+                    <li><b>51</b><span>пункт постійного базування</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ ПОШУК + КАРТА + СПИСОК ============ -->
+        <section class="un_section" aria-label="Структурні підрозділи на карті">
+            <div class="sp_inner">
+
+                <div class="un_toolbar reveal">
+                    <label class="un_search">
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        <input type="search" id="unitSearch" placeholder="Місто, село або вулиця…" autocomplete="off" aria-label="Пошук підрозділу">
+                        <button type="button" class="un_clear" id="unitSearchClear" aria-label="Очистити пошук">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                        </button>
+                    </label>
+
+                    <ul class="un_filters" aria-label="Тип підрозділу">
+                        <li><button type="button" class="un_filter is_active" data-filter="all" aria-pressed="true">Усі <small>90</small></button></li>
+                        <li><button type="button" class="un_filter" data-filter="center" aria-pressed="false" style="--c: var(--t-center)"><i></i>Центр <small>1</small></button></li>
+                        <li><button type="button" class="un_filter" data-filter="station" aria-pressed="false" style="--c: var(--t-station)"><i></i>Станції <small>9</small></button></li>
+                        <li><button type="button" class="un_filter" data-filter="sub" aria-pressed="false" style="--c: var(--t-sub)"><i></i>Підстанції <small>29</small></button></li>
+                        <li><button type="button" class="un_filter" data-filter="ppb" aria-pressed="false" style="--c: var(--t-ppb)"><i></i>ППБ <small>51</small></button></li>
+                    </ul>
+                </div>
+
+                <div class="un_grid">
+                    <div class="un_list_col">
+                        <p class="un_count" id="unitCount" aria-live="polite">Знайдено: <b>90</b> з 90</p>
+
+                        <!-- Список підрозділів: координати для карти беруться з data-lat / data-lng -->
+                        <ol class="unit_list" id="unitList">
+                    <li class="unit_card" data-unit="1" data-type="center" data-lat="46.4866908" data-lng="30.7341226">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">1</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Центр</span>
+                                <span class="unit_title">КНП «Одеський обласний центр екстреної медичної допомоги і медицини катастроф»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">65026, м. Одеса, вул. Гаванна 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4866908,30.7341226" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="2" data-type="station" data-lat="45.9942201" data-lng="29.4165866">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">2</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">Відокремлений підрозділ «Арцизська станція екстреної (швидкої) медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68400, м. Арциз, вул. Вокзальна 4-а</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.9942201,29.4165866" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="3" data-type="ppb" data-lat="45.9160474" data-lng="29.0804908">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">3</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД в с. Ново-Іванівка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68430, с. Ново-Іванівка, вул. Електрична 20</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.9160474,29.0804908" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="4" data-type="ppb" data-lat="45.8210103" data-lng="29.2564265">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">4</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Камянське</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">с. Камянське, Арцизького р-н., вул. БорисаТопора, 46-а</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.8210103,29.2564265" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="5" data-type="sub" data-lat="46.0226937" data-lng="29.6565678">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">5</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Сарата</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68200, смт. Сарата, вул. Соборна 2-А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.0226937,29.6565678" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="6" data-type="ppb" data-lat="46.1316468" data-lng="29.9044891">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">6</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД в с. Миколаївка Новоросійська</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68244, с. Миколаївка Новоросійська, вул. Морозова 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.1316468,29.9044891" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="7" data-type="ppb" data-lat="46.0811991" data-lng="29.8733223">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">7</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Кулевча</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68261, с. Кулевча, вул. Перемоги 2-А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.0811991,29.8733223" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="8" data-type="sub" data-lat="45.8350284" data-lng="29.6180549">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">8</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Татарбунари</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68100, м. Татарбунари, вул. В.Тура 32</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.8350284,29.6180549" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="9" data-type="ppb" data-lat="45.8625457" data-lng="30.0760515">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">9</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Тузли</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68160, с. Тузли, вул. Червоноармійська 96</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.8625457,30.0760515" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="10" data-type="ppb" data-lat="45.709767" data-lng="29.7606296">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">10</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Приморське</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68142, с. Приморське, вул. Шаганська 85-А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.709767,29.7606296" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="11" data-type="sub" data-lat="46.1790768" data-lng="29.1512592">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">11</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Тарутіне</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68500, смт. Тарутино, вул. Красна 75</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.1790768,29.1512592" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="12" data-type="ppb" data-lat="46.3047342" data-lng="29.0167221">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">12</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Серпневе</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68522, с. Серпневе, вул. Вишнева 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.3047342,29.0167221" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="13" data-type="ppb" data-lat="46.3076376" data-lng="29.2385844">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">13</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Бородіно</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68540, с. Бородіно, вул. Будішесткого 51</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.3076376,29.2385844" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="14" data-type="station" data-lat="46.1909666" data-lng="30.3427228">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">14</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">ВП «Белгород-Дністровська станція екстреної (швидкої) медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67700, м. Білгород-Дністровський, вул. Московська 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.1909666,30.3427228" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="15" data-type="ppb" data-lat="46.0244872" data-lng="30.3681046">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">15</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД в смт. Сергіївка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67780, смт. Сергіївка, вул. Горького 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.0244872,30.3681046" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="16" data-type="ppb" data-lat="46.3335785" data-lng="29.9771458">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">16</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД в с. Старокозаче</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67730, с. Старокозаче, вул. Лікарняна 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.3335785,29.9771458" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="17" data-type="ppb" data-lat="46.2046159" data-lng="30.2606748">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">17</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Випасне</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67752, с. Випасне, вул. Кишинівська 140</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.2046159,30.2606748" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="18" data-type="ppb" data-lat="46.1279152" data-lng="30.3935077">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">18</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Шабо</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67771, с. Шабо, вул. Шанцера 48</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.1279152,30.3935077" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="19" data-type="ppb" data-lat="46.0685661" data-lng="30.4545698">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">19</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД смт. Затока</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67775, смт. Затока, вул. Виноградна 68</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.0685661,30.4545698" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="20" data-type="ppb" data-lat="46.1030731" data-lng="30.0461364">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">20</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Маразліївка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67760, с. Маразліївка, вул. Жовтнева 85</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.1030731,30.0461364" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="21" data-type="station" data-lat="46.4825511" data-lng="30.2120179">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">21</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">Відокремлений підрозділ «Біляївська станція екстреної (швидкої) медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67600 м. Біляївка, вул. Московська 32</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4825511,30.2120179" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="22" data-type="ppb" data-lat="46.6771583" data-lng="30.6371097">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">22</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Іллінка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67630 Іллінка, вул. Міжлиманська 33</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.6771583,30.6371097" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="23" data-type="ppb" data-lat="46.5812999" data-lng="30.5482948">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">23</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Дачне</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67624, с. Дачне, вул. Лікарняна 1-А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.5812999,30.5482948" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="24" data-type="ppb" data-lat="46.4749928" data-lng="30.5693297">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">24</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Великий Дальник</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67668, с. Великий Дальник, вул. Безверхого 32</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4749928,30.5693297" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="25" data-type="ppb" data-lat="46.4156005" data-lng="30.2607723">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">25</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Маяки</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67654 вул. Богачова, 98, Маяки</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4156005,30.2607723" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="26" data-type="ppb" data-lat="46.5403265" data-lng="30.0129409">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">26</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Троїцьке</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67641, с. Троїцьке, вул. І.Роти 49</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.5403265,30.0129409" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="27" data-type="sub" data-lat="46.5058033" data-lng="30.3199318">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">27</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги м. Теплодар</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">65490, м. Теплодар, вул. Комунальна 3</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.5058033,30.3199318" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="28" data-type="sub" data-lat="46.2430959" data-lng="30.438439">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">28</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Овідіополь</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67801, смт. Овідіополь, вул. Портова 9-А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.2430959,30.438439" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="29" data-type="ppb" data-lat="46.3597433" data-lng="30.4749372">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">29</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Новоградовка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67830, с. Новоградківка, вул. Центральна 15/17</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.3597433,30.4749372" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="30" data-type="ppb" data-lat="46.4128947" data-lng="30.263574">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">30</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Маяки</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67000, с. Маяки, вул. Богачова, 99</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4128947,30.263574" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="31" data-type="station" data-lat="47.0958871" data-lng="29.8404206">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">31</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">Відокремлений підрозділ «Великомихайлівська станція екстреної (швидкої) медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67100, смт. Велика Михайлівка, вул. Центральна 248</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.0958871,29.8404206" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="32" data-type="ppb" data-lat="47.0115058" data-lng="29.6346802">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">32</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Великоплоське</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67140, с. Великоплоське, вул. Сільрадівська 7</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.0115058,29.6346802" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="33" data-type="ppb" data-lat="47.1502514" data-lng="30.1009236">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">33</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД смт. Цебрикове</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67130, смт. Цебрикове, вул. Лермонтова 2</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.1502514,30.1009236" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="34" data-type="sub" data-lat="47.3393097" data-lng="29.748946">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">34</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Захарьївка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66700, смт. Захарьївка, вул. Центральна 40</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.3393097,29.748946" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="35" data-type="sub" data-lat="46.8618721" data-lng="30.0296893">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">35</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги м. Роздільна</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67400, м. Роздільна, вул. Європейська 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.8618721,30.0296893" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="36" data-type="ppb" data-lat="46.7870588" data-lng="30.3719598">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">36</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Єреміївка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67442, с. Єреміївка, вул. Центральна 38 - А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.7870588,30.3719598" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="37" data-type="ppb" data-lat="46.6639062" data-lng="29.9359115">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">37</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Лиманське</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67452, смт. Лиманське, вул. Кірова 15</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.6639062,29.9359115" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="38" data-type="station" data-lat="46.9384907" data-lng="30.4026768">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">38</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">Відокремлений підрозділ «Іванівська станція екстреної (швидкої) медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67200, смт. Іванівка, вул. Центральна 121</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.9384907,30.4026768" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="39" data-type="ppb" data-lat="46.9077253" data-lng="30.7142518">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">39</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД смт. Петрівка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67240, смт. Петрівка, вул. Мічуріна 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.9077253,30.7142518" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="40" data-type="ppb" data-lat="46.4922152" data-lng="30.5628263">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">40</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД смт. Радісне</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67212, смт. Радісне вул. Перемоги 6</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4922152,30.5628263" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="41" data-type="sub" data-lat="46.8281104" data-lng="30.9417952">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">41</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Доброслав</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67500, смт. Доброслав, вул. Грубніка 27</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.8281104,30.9417952" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="42" data-type="ppb" data-lat="46.9089443" data-lng="30.7180418">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">42</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД смт. Петрівка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67240, смт. Петрівка, вул. Янчева 44</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.9089443,30.7180418" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="43" data-type="ppb" data-lat="46.5853866" data-lng="30.8751338">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">43</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД смт. Чорноморське</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67570, смт. Чорноморське, вул. Гвардійська 86</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.5853866,30.8751338" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="44" data-type="ppb" data-lat="46.6316192" data-lng="30.766064">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">44</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Красносілка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67500, с. Красносілка, вул. Шкілька 1-А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.6316192,30.766064" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="45" data-type="sub" data-lat="47.2003988" data-lng="30.8924249">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">45</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Березівка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67500, м. Березівка, вул. Лікарняна 6</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.2003988,30.8924249" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="46" data-type="ppb" data-lat="47.1199693" data-lng="30.6162434">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">46</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Розквіт</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67324, с. Розквіт, вул. Санаторна 1-Б</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.1199693,30.6162434" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="47" data-type="ppb" data-lat="47.0142661" data-lng="30.2182689">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">47</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Знам’янка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67000, с. Знам’янка, вул. Армійська, 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.0142661,30.2182689" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="48" data-type="station" data-lat="45.3526629" data-lng="28.8173579">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">48</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">Відокремлений підрозділ «Ізмаїльська станція екстреної (швидкої) медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68600, м. Ізмаїл, вул. І.Франка 10</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.3526629,28.8173579" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="49" data-type="ppb" data-lat="45.5753254" data-lng="28.988606">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">49</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД смт. Суворове</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68640, смт. Суворове, вул. Кутузова 12</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.5753254,28.988606" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="50" data-type="ppb" data-lat="45.5645919" data-lng="28.8809068">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">50</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Кам’янка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">вул. Димитрова 97А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.5645919,28.8809068" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="51" data-type="ppb" data-lat="45.4051222" data-lng="28.6605449">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">51</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Озерне</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68660, с. Озерне, вул. Центральна 27А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.4051222,28.6605449" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="52" data-type="sub" data-lat="45.433005" data-lng="29.2763919">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">52</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги м. Кілія</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68300, м. Кілія, вул. Кубишкіна 19</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.433005,29.2763919" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="53" data-type="ppb" data-lat="45.5525259" data-lng="29.3357163">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">53</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД м. Шевченкове</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">с. Шевченкове, Кілійського р-н., вул Чернашевского, 14</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.5525259,29.3357163" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="54" data-type="ppb" data-lat="45.3988192" data-lng="29.5861735">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">54</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД м. Вилкове</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68355, м. Вилково, вул. Різдвяна 55</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.3988192,29.5861735" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="55" data-type="sub" data-lat="45.4569999" data-lng="28.2657544">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">55</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги м. Рені</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68800, м. Рені, вул. Дунайська 15</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.4569999,28.2657544" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="56" data-type="sub" data-lat="45.6754692" data-lng="28.6127538">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">56</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги м. Болград</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68700, м. Болград, вул. Соборна 123</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.6754692,28.6127538" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="57" data-type="ppb" data-lat="45.97244" data-lng="28.9798713">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">57</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Дмитровка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68710, с. Дмитрівка, вул. Миколи Марагоз 87А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.97244,28.9798713" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="58" data-type="ppb" data-lat="45.9417292" data-lng="28.8368509">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">58</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Нови-Трояни</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68711, с. Нові Трояни, вул. Молодіжна 13</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.9417292,28.8368509" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="59" data-type="ppb" data-lat="45.7939814" data-lng="28.7352794">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">59</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Кубей</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68720, с. Кубей, вул. Успенська 15-А</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.7939814,28.7352794" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="60" data-type="ppb" data-lat="45.3360858" data-lng="28.5693457">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">60</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Новосельське</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">68000, с Новосельське, вул. Кокаи, 35</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.3360858,28.5693457" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="61" data-type="station" data-lat="47.7295729" data-lng="29.529933">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">61</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">Відокремлений підрозділ «Подольська станція екстреної (швидкої) медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66300, м. Подольск, вул. Самборського 597</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.7295729,29.529933" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="62" data-type="sub" data-lat="47.5426956" data-lng="29.4499946">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">62</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Окни</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67900, смт. Окна, вул. Лікарняна, 40</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.5426956,29.4499946" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="63" data-type="sub" data-lat="47.961538" data-lng="29.6140083">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">63</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги м. Балта</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66101, м. Балта, вул. Ломоносова 181</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.961538,29.6140083" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="64" data-type="ppb" data-lat="48.1262598" data-lng="29.7432671">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">64</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Піщана</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66110, с. Піщана, вул. Центральна 58</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=48.1262598,29.7432671" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="65" data-type="sub" data-lat="48.0974614" data-lng="29.1181093">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">65</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги м. Кодима</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66000, м. Кодима, вул. Кривенцова 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=48.0974614,29.1181093" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="66" data-type="ppb" data-lat="48.0472594" data-lng="28.8895491">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">66</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Загнітків</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66012, с. Загнітків, вул. Партизанська 22</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=48.0472594,28.8895491" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="67" data-type="station" data-lat="47.8400611" data-lng="30.2586939">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">67</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">Відокремлений підрозділ «Любашівська станція екстреної (швидкої) медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66502, смт. Любашівка, вул. Софіївська 47</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.8400611,30.2586939" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="68" data-type="sub" data-lat="47.7229495" data-lng="29.9581933">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">68</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги м. Ананьїв</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66400, м. Ананьїв, вул. Героїв України 45</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.7229495,29.9581933" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="69" data-type="sub" data-lat="48.1343442" data-lng="30.0809414">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">69</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Саврань</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66200, смт. Саврань, вул. Соборна 15</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=48.1343442,30.0809414" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="70" data-type="sub" data-lat="47.3790899" data-lng="30.1878443">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">70</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Ширяєво</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66800, смт. Ширяєво, вул. Грушевського 94</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.3790899,30.1878443" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="71" data-type="ppb" data-lat="47.2245217" data-lng="30.3028557">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">71</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Петровірівка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">66860 с. Петровірівка вул. Санаторна 3</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.2245217,30.3028557" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="72" data-type="ppb" data-lat="47.4991569" data-lng="30.4586053">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">72</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Андрієво-Іванівка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67021, с. Андрієво-Іванівка, вул. А.Іваново 76</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.4991569,30.4586053" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="73" data-type="sub" data-lat="47.5397829" data-lng="30.7481469">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">73</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">Підстанція швидкої (екстреної) медичної допомоги смт. Миколаївка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">67000, смт. Миколаївка, вул. Чкалова 50Б</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.5397829,30.7481469" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="74" data-type="station" data-lat="46.4935413" data-lng="30.7212453">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">74</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Станція</span>
+                                <span class="unit_title">ВП «Одеська міська станція швидкої медичної допомоги»</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Одеса, вул. Валіховський провулок 10</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4935413,30.7212453" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="75" data-type="sub" data-lat="46.4318934" data-lng="30.7296447">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">75</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">1 підстанція Приморський р-н</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Одеса, вул. Шклярука, 4а</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4318934,30.7296447" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="76" data-type="sub" data-lat="46.4670559" data-lng="30.6757717">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">76</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">2 підстанція Малиновський р-н</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Одеса, вул. Боженко 19</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4670559,30.6757717" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="77" data-type="sub" data-lat="46.5822074" data-lng="30.7789008">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">77</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">3 підстанція Приморський р-н</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Одеса, вул. Акадаміка Заболотного 1а</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.5822074,30.7789008" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="78" data-type="sub" data-lat="46.4302865" data-lng="30.706642">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">78</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">4 підстанція Малиновський р-н</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Одеса, вул. Генерала Петрова, 25</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4302865,30.706642" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="79" data-type="sub" data-lat="46.3830361" data-lng="30.7127244">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">79</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">5 підстанція Київський р-н</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Одеса, вул. Вавілова 60</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.3830361,30.7127244" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="80" data-type="sub" data-lat="46.5035451" data-lng="30.7208051">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">80</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">6 підстанція Суворовський р-н</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Одеса, вул. Атамана Головатого 32</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.5035451,30.7208051" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="81" data-type="ppb" data-lat="46.7582192" data-lng="30.5137724">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">81</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Маріновка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">с. Маринівка, Біляївського р-н., вул Покровська, 1-а</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.7582192,30.5137724" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="82" data-type="sub" data-lat="46.4935413" data-lng="30.72124533">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">82</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">7 підстанція Приморський р-н</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Одеса, пров. Валіховський 10</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4935413,30.72124533" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="83" data-type="sub" data-lat="46.2991126" data-lng="30.6548907">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">83</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">8 підстанція м. Черноморськ</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Черноморськ, вул. 1 Травня 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.2991126,30.6548907" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="84" data-type="ppb" data-lat="46.2257282" data-lng="30.5293367">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">84</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Дальник</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Дальник, вул. Дружби, 126</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.2257282,30.5293367" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="85" data-type="sub" data-lat="46.6392056" data-lng="31.0958156">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">85</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">9 підстанція, с. Сичавка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">с. Сичавка, вул. Каштанова, 33</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.6392056,31.0958156" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="86" data-type="sub" data-lat="46.624346" data-lng="31.0870159">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">86</span>
+                            <span class="unit_info">
+                                <span class="unit_type">Підстанція</span>
+                                <span class="unit_title">9 підстанція м. Южний</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">м. Южний, вул. Хіміків 1</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.624346,31.0870159" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="87" data-type="ppb" data-lat="46.562993" data-lng="30.8448562">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">87</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Фонтанка</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">с. Фонтанка, Комінтернівський район</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.562993,30.8448562" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="88" data-type="ppb" data-lat="46.5358476" data-lng="30.6396999">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">88</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Усатове</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">с. Усатове, Біляївський район</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.5358476,30.6396999" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="89" data-type="ppb" data-lat="46.344722" data-lng="30.5807154">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">89</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Великодолинське</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">с. Великодолинське, Овідіопольський район</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.344722,30.5807154" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                    <li class="unit_card" data-unit="90" data-type="ppb" data-lat="46.4698417" data-lng="30.5799261">
+                        <button type="button" class="unit_main" aria-expanded="false">
+                            <span class="unit_num">90</span>
+                            <span class="unit_info">
+                                <span class="unit_type">ППБ</span>
+                                <span class="unit_title">ППБ Е(Ш)МД с. Авангард</span>
+                                <span class="unit_addr"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="unit_addr_text">с. Авангард, Овідіопольський район</span></span>
+                            </span>
+                        </button>
+                        <div class="unit_body">
+                            <a class="unit_route" href="https://www.google.com/maps/dir/?api=1&amp;destination=46.4698417,30.5799261" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> Прокласти маршрут</a>
+                        </div>
+                    </li>
+                        </ol>
+
+                        <p class="un_empty" id="unitEmpty"><b>Нічого не знайдено</b>Спробуйте іншу назву населеного пункту або вулиці.</p>
+                    </div>
+
+                    <div class="un_map_wrap reveal_fade">
+                        <div class="un_map" id="unitsMap" role="region" aria-label="Карта структурних підрозділів"></div>
+                        <button type="button" class="un_reset" id="unitsReset">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                            Уся область
+                        </button>
+                        <div class="un_legend" aria-hidden="true">
+                            <span><i class="un_dot" style="--c: var(--t-center)"></i> Центр</span>
+                            <span><i class="un_dot" style="--c: var(--t-station)"></i> Станція</span>
+                            <span><i class="un_dot" style="--c: var(--t-sub)"></i> Підстанція</span>
+                            <span><i class="un_dot" style="--c: var(--t-ppb)"></i> ППБ</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+
+        <!-- Смуга екстреного виклику -->
+        <div class="footer_cta_wrap">
+            <div class="footer_cta">
+                <div class="footer_cta_text">
+                    <p class="footer_cta_label">Потрібна невідкладна допомога?</p>
+                    <p class="footer_cta_title">Телефонуйте <span>103</span> — цілодобово та безкоштовно</p>
+                </div>
+                <a href="tel:103" class="footer_cta_btn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+                    Зателефонувати 103
+                </a>
+            </div>
+        </div>
+
+        <div class="footer_inner">
+            <div class="footer_grid">
+
+                <!-- Про організацію + контакти -->
+                <div class="footer_brand">
+                    <a href="../../index.html" class="footer_logo_link" aria-label="На головну">
+                        <img src="../../imgindex/logo.png" alt="Логотип центру" class="footer_logo">
+                        <span class="footer_name">
+                            КНП «Одеський обласний центр екстреної медичної допомоги і медицини катастроф»
+                            <small>Одеської обласної ради</small>
+                        </span>
+                    </a>
+
+                    <ul class="footer_contacts">
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Телефон</p>
+                                <a href="tel:+380487263535">(048) 726-35-35</a>
+                                <a href="tel:0800508990">0 800 508 990</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">E-mail</p>
+                                <a href="mailto:med-katastrof@ukr.net">med-katastrof@ukr.net</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Адреса</p>
+                                <p class="footer_text">65026, м. Одеса, вул. Гаванна, 1</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="footer_social">
+                        <span class="footer_label">Слідкуйте за нами</span>
+                        <!-- Вставте посилання на сторінку Facebook -->
+                        <a href="#" class="footer_social_btn" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Про нас -->
+                <nav class="footer_col" aria-label="Про нас">
+                    <p class="footer_col_title">Про нас</p>
+                    <ul class="footer_links">
+                        <li><a href="../../index.html#team">Керівництво</a></li>
+                        <li><a href="../History/history.html">Історія</a></li>
+                        <li><a href="../../index.html#news">Новини</a></li>
+                        <li><a href="#">Державні закупівлі</a></li>
+                        <li><a href="#">Нормативні акти</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Послуги + банер -->
+                <div class="footer_col">
+                    <nav aria-label="Послуги">
+                        <p class="footer_col_title">Послуги</p>
+                        <ul class="footer_links">
+                            <li><a href="../../index.html#services">Послуги</a></li>
+                            <li><a href="#">Учбово-тренувальний відділ</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Банер програми ментального здоров'я «Ти як?» -->
+                    <a href="https://howareu.com" class="footer_banner" target="_blank" rel="noopener">
+                        <span class="footer_banner_text">Піклуватися про ментальне здоров’я із</span>
+                        <span class="footer_banner_title">Ти як?</span>
+                        <span class="footer_banner_link">
+                            howareu.com
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Нижня смуга -->
+        <div class="footer_bottom">
+            <div class="footer_bottom_inner">
+                <p>© med-katastrof 2001–<span id="footerYear">2025</span></p>
+                <p class="footer_bottom_center">Одеський обласний центр екстреної медичної допомоги і медицини катастроф</p>
+                <button type="button" class="footer_top_btn" id="toTop">
+                    Нагору
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ МОДАЛКА КОНТАКТІВ ============ -->
+    <div class="modal" id="contactsModal" role="dialog" aria-modal="true" aria-labelledby="contactsTitle" aria-hidden="true">
+        <div class="modal_overlay" data-close-modal></div>
+
+        <div class="modal_box">
+            <button type="button" class="modal_close" data-close-modal aria-label="Закрити">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            <h2 class="modal_title" id="contactsTitle">Контакти</h2>
+
+            <a href="tel:103" class="emergency_card">
+                <span class="emergency_icon">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>
+                </span>
+                <span>
+                    <span class="emergency_label">Екстрена лінія</span>
+                    <span class="emergency_number">103</span>
+                </span>
+            </a>
+
+            <ul class="contacts_list">
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div>
+                        <p class="contacts_label">Гарячі лінії</p>
+                        <a href="tel:+380487263535" class="contacts_link">(048) 726-35-35</a>
+                        <a href="tel:0800508990" class="contacts_link">0 800 508 990</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <div>
+                        <p class="contacts_label">Електронна пошта</p>
+                        <a href="mailto:med-katastrof@ukr.net" class="contacts_link">med-katastrof@ukr.net</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <p class="contacts_label">Адреса</p>
+                        <p class="contacts_text">м. Одеса, вул. Гаванна, 1</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============ МОБІЛЬНЕ МЕНЮ ============ -->
+    <div class="mobile_menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile_overlay" data-close-mobile></div>
+
+        <aside class="mobile_panel">
+            <div class="mobile_head">
+                <span class="mobile_title">Меню</span>
+                <button type="button" class="modal_close mobile_close" data-close-mobile aria-label="Закрити меню">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Пункти генеруються з десктопного меню в script.js -->
+            <nav class="mobile_nav" aria-label="Мобільне меню">
+                <ul class="mobile_list" id="mobileList"></ul>
+            </nav>
+
+            <a href="tel:103" class="mobile_emergency">Екстрена лінія 103</a>
+        </aside>
+    </div>
+
+</body>
+</html>

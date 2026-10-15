@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медична підготовка (II рівень) — Центр ЕМД та МК Одеської області</title>
+    <meta name="description" content="Навчальний план медичної підготовки з питань невідкладної медичної допомоги у надзвичайних ситуаціях (II рівень): 48 годин, теорія та практика.">
+    <link rel="stylesheet" href="medicaltraining2.css">
+    <script src="medicaltraining2.js" defer></script>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header_wrapper">
+        <div class="menu_wrapper">
+
+            <!-- Логотип -->
+            <a href="../../index.html" class="logo_link" aria-label="На головну">
+                <img src="../../imgindex/logo.png"
+                     alt="Центр екстреної медичної допомоги та медицини катастроф Одеської області"
+                     class="logo_img">
+            </a>
+
+            <!-- Десктопне меню -->
+            <nav class="menu_nav_wrapper" aria-label="Головне меню">
+                <ul class="nav_list">
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Послуги
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../../services/Emergency%20medical%20services/emergencymedicalservices.html">Екстрена швидка медична допомога</a></li>
+                                <li><a href="../../services/Emergency%20medical%20transport/emergencymedicaltransport.html">Екстрене медичне перевезення</a></li>
+                                <li><a href="../../services/Emergency%20consultative%20care/emergencyconsultativecare.html">Надання екстреної консультативної медичної допомоги</a></li>
+                                <li><a href="../../services/Calls%20for%20hearing%20impaired/callsforhearingimpaired.html">Прийом викликів від населення з вадами слуху та мови</a></li>
+                                <li><a href="../../services/Medicines%20availability/medicinesavailability.html">Наявність лікарських засобів</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Організація
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="#">Про нас</a></li>
+                                <li><a href="../../organization/History/history.html">Історія</a></li>
+                                <li><a href="../../organization/Structural%20units/structuralunits.html">Структурні підрозділи</a></li>
+                                <li><a href="../../index.html#team">Керівництво</a></li>
+                                <li><a href="../../organization/Activity/activity.html">Діяльність</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item has_dropdown is_current">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Учбово-тренувальний відділ
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <li><a href="../Medical%20training%20I/medicaltraining1.html">Медична підготовка (I рівень)</a></li>
+                                <li><a href="medicaltraining2.html" aria-current="page">Медична підготовка (II рівень)</a></li>
+                                <li><a href="#">Медична підготовка (III рівень)</a></li>
+                                <li><a href="#">Безперервний професійний розвиток</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item"><a href="../../index.html#news" class="nav_link">Новини</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Фотогалерея</a></li>
+
+                    <li class="nav_item has_dropdown">
+                        <button type="button" class="nav_link nav_toggle" aria-expanded="false" aria-haspopup="true">
+                            Державні закупівлі
+                            <svg class="icon chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown">
+                            <ul class="dropdown_list">
+                                <!-- Тимчасові пункти — замініть на підрозділи з оригінального сайту -->
+                                <li><a href="#">Річний план закупівель</a></li>
+                                <li><a href="#">Оголошення про закупівлі</a></li>
+                                <li><a href="#">Обґрунтування технічних та якісних характеристик</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav_item"><a href="#" class="nav_link">Нормативні акти</a></li>
+                    <li class="nav_item"><a href="#" class="nav_link">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <!-- Праворуч: сплит-кнопка + бургер -->
+            <div class="header_actions">
+                <div class="split_btn">
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Телефони">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </button>
+                    <span class="split_btn_divider" aria-hidden="true"></span>
+                    <button type="button" class="split_btn_part" data-open-contacts aria-label="Електронна пошта">
+                        <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </button>
+                </div>
+
+                <button type="button" class="burger_btn" id="burgerBtn" aria-label="Відкрити меню">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="sp">
+
+        <!-- ============ ЗАГОЛОВОК СТОРІНКИ ============ -->
+        <section class="sp_hero mt_hero">
+            <div class="sp_inner">
+                <nav class="sp_crumbs reveal" aria-label="Навігація">
+                    <a href="../../index.html">Головна</a>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <span>Учбово-тренувальний відділ</span>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    <span aria-current="page">Медична підготовка (II рівень)</span>
+                </nav>
+
+                <span class="sp_eyebrow mt_eyebrow reveal" style="--i: 1">Навчальний план · II рівень</span>
+                <h1 class="sp_title reveal" style="--i: 1">Медична підготовка з питань невідкладної медичної допомоги у надзвичайних ситуаціях</h1>
+
+                <!-- Перемикач рівнів підготовки -->
+                <ul class="sp_tabs mt_tabs reveal" style="--i: 2">
+                    <li><a href="../Medical%20training%20I/medicaltraining1.html" class="sp_tab"><span class="sp_tab_icon mt_tab_num">I</span>I рівень</a></li>
+                    <li><a href="medicaltraining2.html" class="sp_tab is_active" aria-current="page"><span class="sp_tab_icon mt_tab_num">II</span>II рівень</a></li>
+                    <li><a href="#" class="sp_tab"><span class="sp_tab_icon mt_tab_num">III</span>III рівень</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ КОРОТКО ПРО КУРС ============ -->
+        <section class="mt_section mt_section_info" aria-label="Про курс">
+            <div class="sp_inner mt_info">
+                <div class="mt_who reveal">
+                    <span class="mt_who_icon" aria-hidden="true">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <div>
+                        <p class="mt_label">Контингент</p>
+                        <p class="mt_who_text">
+                            Співробітники МВС України, провідники пасажирських вагонів, стюардеси та інші.
+                        </p>
+                    </div>
+                </div>
+
+                <ul class="mt_stats reveal" style="--i: 1">
+                    <li class="mt_stat_main"><b>48</b><span>годин навчання</span></li>
+                    <li><b>14</b><span>годин теорії</span></li>
+                    <li><b>34</b><span>години практики</span></li>
+                    <li><b>3</b><span>розділи</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ НАВЧАЛЬНИЙ ПЛАН ============ -->
+        <section class="mt_section" aria-labelledby="planTitle">
+            <div class="sp_inner">
+                <div class="mt_plan_head reveal">
+                    <div>
+                        <span class="sp_eyebrow">Програма</span>
+                        <h2 class="mt_h2" id="planTitle">Навчальний план</h2>
+                    </div>
+                    <p class="mt_legend" aria-hidden="true">
+                        <span><i class="mt_dot"></i> Теорія</span>
+                        <span><i class="mt_dot mt_dot_pr"></i> Практика</span>
+                        <span class="mt_legend_unit">Учбовий час, год.</span>
+                    </p>
+                </div>
+
+            <!-- Розділ 1 -->
+            <div class="mt_part">
+                <div class="mt_part_head reveal">
+                    <span class="mt_part_code">1</span>
+                    <h3 class="mt_part_title">Основи анатомії та фізіології людини</h3>
+                    <p class="mt_part_sum"><b>2</b> год<span>теорія 2 · практика —</span></p>
+                </div>
+                <ol class="mt_subs">
+                    <li class="mt_sub reveal" style="--i: 0">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">1.1</span>
+                            <h4 class="mt_sub_title">Поняття про органи та системи організму людини та їх фізіологію</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>2</dd></div>
+                                <div><dt>Практика</dt><dd>—</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>2</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">1.1.1</span>
+                                    <span class="mt_t_name">Кістково-м’язова система</span>
+                                    <span class="mt_t_h" aria-label="теорія 1, практика —"><i class="is_th">1</i><i class="is_pr">—</i><b>1</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">1.1.2</span>
+                                    <span class="mt_t_name">Серцево-судинна система</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика —"><i class="is_th">0,5</i><i class="is_pr">—</i><b>0,5</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">1.1.3</span>
+                                    <span class="mt_t_name">Органи дихання</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика —"><i class="is_th">0,5</i><i class="is_pr">—</i><b>0,5</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                </ol>
+            </div>
+            <!-- Розділ 2 -->
+            <div class="mt_part">
+                <div class="mt_part_head reveal">
+                    <span class="mt_part_code">2</span>
+                    <h3 class="mt_part_title">Особливості патологічних порушень, які виникають в екстремальних ситуаціях</h3>
+                    <p class="mt_part_sum"><b>14</b> год<span>теорія 8 · практика 6</span></p>
+                </div>
+                <ol class="mt_subs">
+                    <li class="mt_sub reveal" style="--i: 0">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">2.1</span>
+                            <h4 class="mt_sub_title">Порушення основних життєво важливих функцій організму</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>2</dd></div>
+                                <div><dt>Практика</dt><dd>2</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>4</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">2.1.1</span>
+                                    <span class="mt_t_name">Гостра дихальна недостатність</span>
+                                    <span class="mt_t_h" aria-label="теорія 1, практика 1"><i class="is_th">1</i><i class="is_pr">1</i><b>2</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">2.1.2</span>
+                                    <span class="mt_t_name">Гостра серцево-судинна недостатність (непритомність, колапс, шок)</span>
+                                    <span class="mt_t_h" aria-label="теорія 1, практика 1"><i class="is_th">1</i><i class="is_pr">1</i><b>2</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 1">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">2.2</span>
+                            <h4 class="mt_sub_title">Травми</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>2</dd></div>
+                                <div><dt>Практика</dt><dd>2</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>4</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">2.2.1</span>
+                                    <span class="mt_t_name">Рани, вогнепальні рани</span>
+                                    <span class="mt_t_h" aria-label="теорія 1, практика 1"><i class="is_th">1</i><i class="is_pr">1</i><b>2</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">2.2.2</span>
+                                    <span class="mt_t_name">Переломи, забої, вивихи</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика 1"><i class="is_th">0,5</i><i class="is_pr">1</i><b>1,5</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">2.2.3</span>
+                                    <span class="mt_t_name">Кровотечі</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика —"><i class="is_th">0,5</i><i class="is_pr">—</i><b>0,5</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 2">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">2.3</span>
+                            <h4 class="mt_sub_title">Термічні ураження</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>2</dd></div>
+                                <div><dt>Практика</dt><dd>2</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>4</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">2.3.1</span>
+                                    <span class="mt_t_name">Опіки та перегрівання</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика 1"><i class="is_th">0,5</i><i class="is_pr">1</i><b>1,5</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">2.3.2</span>
+                                    <span class="mt_t_name">Відмороження та переохолодження (замерзання)</span>
+                                    <span class="mt_t_h" aria-label="теорія 1, практика 1"><i class="is_th">1</i><i class="is_pr">1</i><b>2</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">2.3.3</span>
+                                    <span class="mt_t_name">Електротравма</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика —"><i class="is_th">0,5</i><i class="is_pr">—</i><b>0,5</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 0">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">2.4</span>
+                            <h4 class="mt_sub_title">Гострі отруєння</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>2</dd></div>
+                                <div><dt>Практика</dt><dd>—</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>2</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">2.4.1</span>
+                                    <span class="mt_t_name">Отруєння токсичними речовинами</span>
+                                    <span class="mt_t_h" aria-label="теорія 1, практика —"><i class="is_th">1</i><i class="is_pr">—</i><b>1</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">2.4.2</span>
+                                    <span class="mt_t_name">Отруєння продуктами харчування</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика —"><i class="is_th">0,5</i><i class="is_pr">—</i><b>0,5</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">2.4.3</span>
+                                    <span class="mt_t_name">Біологічні отруєння</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика —"><i class="is_th">0,5</i><i class="is_pr">—</i><b>0,5</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                </ol>
+            </div>
+            <!-- Розділ 3 -->
+            <div class="mt_part">
+                <div class="mt_part_head reveal">
+                    <span class="mt_part_code">3</span>
+                    <h3 class="mt_part_title">Загальні принципи надання невідкладної медичної допомоги, підготовка матеріалу та технічних засобів для надання медичної допомоги потерпілим, правила користування ними</h3>
+                    <p class="mt_part_sum"><b>29</b> год<span>теорія 3 · практика 26</span></p>
+                </div>
+                <ol class="mt_subs">
+                    <li class="mt_sub reveal" style="--i: 0">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">3.1</span>
+                            <h4 class="mt_sub_title">Принципи надання першої медичної допомоги на місці пригоди</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>1</dd></div>
+                                <div><dt>Практика</dt><dd>1</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>2</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">3.1.1</span>
+                                    <span class="mt_t_name">Огляд місця пригоди, заходи безпеки при наданні медичної допомоги постраждалим</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика —"><i class="is_th">0,5</i><i class="is_pr">—</i><b>0,5</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">3.1.2</span>
+                                    <span class="mt_t_name">Первинний огляд постраждалого</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 1"><i class="is_th">—</i><i class="is_pr">1</i><b>1</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">3.1.3</span>
+                                    <span class="mt_t_name">Особливості надання медичної допомоги постраждалим з психогенними реакціями</span>
+                                    <span class="mt_t_h" aria-label="теорія 0,5, практика —"><i class="is_th">0,5</i><i class="is_pr">—</i><b>0,5</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 1">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">3.2</span>
+                            <h4 class="mt_sub_title">Техніка накладання пов’язок</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>—</dd></div>
+                                <div><dt>Практика</dt><dd>8</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>8</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">3.2.1</span>
+                                    <span class="mt_t_name">Перев’язувальний матеріал</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 2"><i class="is_th">—</i><i class="is_pr">2</i><b>2</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">3.2.2</span>
+                                    <span class="mt_t_name">Зупинка кровотечі</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 2"><i class="is_th">—</i><i class="is_pr">2</i><b>2</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">3.2.3</span>
+                                    <span class="mt_t_name">Техніка накладання м’яких пов’язок на окремі ділянки тіла</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 4"><i class="is_th">—</i><i class="is_pr">4</i><b>4</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 2">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">3.3</span>
+                            <h4 class="mt_sub_title">Іммобілізація</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>—</dd></div>
+                                <div><dt>Практика</dt><dd>6</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>6</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">3.3.1</span>
+                                    <span class="mt_t_name">Поняття іммобілізації</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 2"><i class="is_th">—</i><i class="is_pr">2</i><b>2</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">3.3.2</span>
+                                    <span class="mt_t_name">Технічні засоби іммобілізації, правила користування ними</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 4"><i class="is_th">—</i><i class="is_pr">4</i><b>4</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 0">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">3.4</span>
+                            <h4 class="mt_sub_title">Основні принципи реанімації при порушенні дихання та кровообігу</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>2</dd></div>
+                                <div><dt>Практика</dt><dd>6</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>8</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">3.4.1</span>
+                                    <span class="mt_t_name">Підтримка життєво важливих функцій організму при порушенні дихання</span>
+                                    <span class="mt_t_h" aria-label="теорія 1, практика 3,5"><i class="is_th">1</i><i class="is_pr">3,5</i><b>4,5</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">3.4.2</span>
+                                    <span class="mt_t_name">Підтримка життєво важливих функцій організму при порушенні кровообігу</span>
+                                    <span class="mt_t_h" aria-label="теорія 1, практика 2,5"><i class="is_th">1</i><i class="is_pr">2,5</i><b>3,5</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 1">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">3.5</span>
+                            <h4 class="mt_sub_title">Транспортування потерпілих</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>—</dd></div>
+                                <div><dt>Практика</dt><dd>2</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>2</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">3.5.1</span>
+                                    <span class="mt_t_name">Методи транспортування потерпілих, технічні засоби</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 2"><i class="is_th">—</i><i class="is_pr">2</i><b>2</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 2">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">3.6</span>
+                            <h4 class="mt_sub_title">Невідкладна медична допомога при гострих отруєннях</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>—</dd></div>
+                                <div><dt>Практика</dt><dd>2</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>2</dd></div>
+                            </dl>
+                        </div>
+                            <ul class="mt_tlist">
+                                <li>
+                                    <span class="mt_t_code">3.6.1</span>
+                                    <span class="mt_t_name">Невідкладна медична допомога при інгаляційних отруєннях</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 0,5"><i class="is_th">—</i><i class="is_pr">0,5</i><b>0,5</b></span>
+                                </li>
+                                <li>
+                                    <span class="mt_t_code">3.6.2</span>
+                                    <span class="mt_t_name">Невідкладна медична допомога при проникненні отрути в шлунок</span>
+                                    <span class="mt_t_h" aria-label="теорія —, практика 1,5"><i class="is_th">—</i><i class="is_pr">1,5</i><b>1,5</b></span>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="mt_sub reveal" style="--i: 0">
+                        <div class="mt_sub_head">
+                            <span class="mt_sub_code">3.7</span>
+                            <h4 class="mt_sub_title">Невідкладна медична допомога при екстрених пологах</h4>
+                            <dl class="mt_hours">
+                                <div><dt>Теорія</dt><dd>—</dd></div>
+                                <div><dt>Практика</dt><dd>1</dd></div>
+                                <div class="mt_hours_total"><dt>Всього</dt><dd>1</dd></div>
+                            </dl>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Контроль -->
+            <div class="mt_part">
+                <div class="mt_part_head reveal">
+                    <span class="mt_part_code">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </span>
+                    <h3 class="mt_part_title">Контроль знань</h3>
+                    <p class="mt_part_sum"><b>3</b> год<span>теорія 1 · практика 2</span></p>
+                </div>
+                <ul class="mt_tlist mt_ctrl reveal">
+                        <li>
+                            <span class="mt_t_name">Тестовий контроль знань</span>
+                            <span class="mt_t_h"><i class="is_th">1</i><i class="is_pr">—</i><b>1</b></span>
+                        </li>
+                        <li>
+                            <span class="mt_t_name">Перевірка практичних навичок</span>
+                            <span class="mt_t_h"><i class="is_th">—</i><i class="is_pr">2</i><b>2</b></span>
+                        </li>
+                </ul>
+            </div>
+
+                <!-- Разом -->
+                <div class="mt_total reveal">
+                    <span class="mt_total_label">Всього</span>
+                    <dl class="mt_hours">
+                        <div><dt>Теорія</dt><dd>14</dd></div>
+                        <div><dt>Практика</dt><dd>34</dd></div>
+                        <div class="mt_hours_total"><dt>Всього</dt><dd>48</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+
+        <!-- Смуга екстреного виклику -->
+        <div class="footer_cta_wrap">
+            <div class="footer_cta">
+                <div class="footer_cta_text">
+                    <p class="footer_cta_label">Потрібна невідкладна допомога?</p>
+                    <p class="footer_cta_title">Телефонуйте <span>103</span> — цілодобово та безкоштовно</p>
+                </div>
+                <a href="tel:103" class="footer_cta_btn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+                    Зателефонувати 103
+                </a>
+            </div>
+        </div>
+
+        <div class="footer_inner">
+            <div class="footer_grid">
+
+                <!-- Про організацію + контакти -->
+                <div class="footer_brand">
+                    <a href="../../index.html" class="footer_logo_link" aria-label="На головну">
+                        <img src="../../imgindex/logo.png" alt="Логотип центру" class="footer_logo">
+                        <span class="footer_name">
+                            КНП «Одеський обласний центр екстреної медичної допомоги і медицини катастроф»
+                            <small>Одеської обласної ради</small>
+                        </span>
+                    </a>
+
+                    <ul class="footer_contacts">
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Телефон</p>
+                                <a href="tel:+380487263535">(048) 726-35-35</a>
+                                <a href="tel:0800508990">0 800 508 990</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">E-mail</p>
+                                <a href="mailto:med-katastrof@ukr.net">med-katastrof@ukr.net</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="footer_icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <div>
+                                <p class="footer_label">Адреса</p>
+                                <p class="footer_text">65026, м. Одеса, вул. Гаванна, 1</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="footer_social">
+                        <span class="footer_label">Слідкуйте за нами</span>
+                        <!-- Вставте посилання на сторінку Facebook -->
+                        <a href="#" class="footer_social_btn" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Про нас -->
+                <nav class="footer_col" aria-label="Про нас">
+                    <p class="footer_col_title">Про нас</p>
+                    <ul class="footer_links">
+                        <li><a href="../../index.html#team">Керівництво</a></li>
+                        <li><a href="../../organization/History/history.html">Історія</a></li>
+                        <li><a href="../../index.html#news">Новини</a></li>
+                        <li><a href="#">Державні закупівлі</a></li>
+                        <li><a href="#">Нормативні акти</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Послуги + банер -->
+                <div class="footer_col">
+                    <nav aria-label="Послуги">
+                        <p class="footer_col_title">Послуги</p>
+                        <ul class="footer_links">
+                            <li><a href="../../index.html#services">Послуги</a></li>
+                            <li><a href="#">Учбово-тренувальний відділ</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Банер програми ментального здоров'я «Ти як?» -->
+                    <a href="https://howareu.com" class="footer_banner" target="_blank" rel="noopener">
+                        <span class="footer_banner_text">Піклуватися про ментальне здоров’я із</span>
+                        <span class="footer_banner_title">Ти як?</span>
+                        <span class="footer_banner_link">
+                            howareu.com
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Нижня смуга -->
+        <div class="footer_bottom">
+            <div class="footer_bottom_inner">
+                <p>© med-katastrof 2001–<span id="footerYear">2025</span></p>
+                <p class="footer_bottom_center">Одеський обласний центр екстреної медичної допомоги і медицини катастроф</p>
+                <button type="button" class="footer_top_btn" id="toTop">
+                    Нагору
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ МОДАЛКА КОНТАКТІВ ============ -->
+    <div class="modal" id="contactsModal" role="dialog" aria-modal="true" aria-labelledby="contactsTitle" aria-hidden="true">
+        <div class="modal_overlay" data-close-modal></div>
+
+        <div class="modal_box">
+            <button type="button" class="modal_close" data-close-modal aria-label="Закрити">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            <h2 class="modal_title" id="contactsTitle">Контакти</h2>
+
+            <a href="tel:103" class="emergency_card">
+                <span class="emergency_icon">
+                    <svg class="icon icon_lg" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>
+                </span>
+                <span>
+                    <span class="emergency_label">Екстрена лінія</span>
+                    <span class="emergency_number">103</span>
+                </span>
+            </a>
+
+            <ul class="contacts_list">
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div>
+                        <p class="contacts_label">Гарячі лінії</p>
+                        <a href="tel:+380487263535" class="contacts_link">(048) 726-35-35</a>
+                        <a href="tel:0800508990" class="contacts_link">0 800 508 990</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <div>
+                        <p class="contacts_label">Електронна пошта</p>
+                        <a href="mailto:med-katastrof@ukr.net" class="contacts_link">med-katastrof@ukr.net</a>
+                    </div>
+                </li>
+                <li class="contacts_item">
+                    <svg class="icon contacts_icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <p class="contacts_label">Адреса</p>
+                        <p class="contacts_text">м. Одеса, вул. Гаванна, 1</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============ МОБІЛЬНЕ МЕНЮ ============ -->
+    <div class="mobile_menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile_overlay" data-close-mobile></div>
+
+        <aside class="mobile_panel">
+            <div class="mobile_head">
+                <span class="mobile_title">Меню</span>
+                <button type="button" class="modal_close mobile_close" data-close-mobile aria-label="Закрити меню">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Пункти генеруються з десктопного меню в script.js -->
+            <nav class="mobile_nav" aria-label="Мобільне меню">
+                <ul class="mobile_list" id="mobileList"></ul>
+            </nav>
+
+            <a href="tel:103" class="mobile_emergency">Екстрена лінія 103</a>
+        </aside>
+    </div>
+
+</body>
+</html>
